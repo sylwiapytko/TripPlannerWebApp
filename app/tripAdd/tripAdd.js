@@ -8,6 +8,7 @@ angular.module('myApp.tripAdd', ['ngRoute'])
     controller: 'tripAddCtrl'
   });
 }])
+
 .directive("booksSearchDir", function() {
     return {
         templateUrl: 'tripAdd/tripAdd.html',
