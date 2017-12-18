@@ -1,0 +1,34 @@
+<books-search-dir></books-search-dir>
+
+   
+<br/><br/>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Autor</th>
+        <th>Kategoria</th>
+        <th>Cena</th>
+        <th>Dostępny</th>
+        <th>Zakup</th>
+        <th style="width: 90px"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="book in books | filter:search " >
+        <td> <a href="#!/bookDetails/{{book.id}}">{{book.title}}{{book.id}}</a></td>
+        <td>{{book.author}}</td>
+        <td>{{book.category.categoryName}}</td>
+        <td>cena</td>
+        <td>{{book.numberOfAvailablePieces}}</td>
+        <td><button ng-click="addToCart(book.id)" ng-show = "book.numberOfAvailablePieces > 0">Dodaj do koszyka</button>
+            <label ng-show = "book.numberOfAvailablePieces == 0">Proukt niedostępny</label>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<p>Cookie:{{mycookie}} length {{cookielength}}</p>
+__________________________________________________________________________________________________
+TESTY

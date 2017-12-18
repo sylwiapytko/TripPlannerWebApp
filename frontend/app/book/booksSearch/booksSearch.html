@@ -1,0 +1,29 @@
+	<div>
+    
+        Szukaj:
+        <input ng-model="search.$" /><br/>
+      
+
+      
+        Sortuj według:
+        <select ng-model="sort">
+          <option value="title">Tytułu</option>
+          <option value="price">Ceny</option>
+        </select><br/>
+        Kategoria:
+        <select ng-model="search.category.id">
+          <option value="">Wszystkie</option>
+          <option ng-repeat="book in books" value={{book.category.id}}>{{book.category.categoryName}}</option>
+        </select><br/>
+<!--       <label>Tylko dostępne:
+    <input type="checkbox" ng-model="search.available" ng-true-value="'true'" ng-false-value="">
+  	</label><br/><br/> -->
+  	<label>Wyszukiwanie zaawansowane:
+	 <button ng-init="advancedSearchB=false" ng-click="advancedSearch()">Szukanie zaawansowane</button><br/>
+	<div ng-show = "advancedSearchB" >
+		Tytuł: <input ng-model="search.title" />
+		Autor: <input ng-model="search.author" />
+<!-- 		Cena od: <input ng-model="cenaOd" />
+    Cena do: <input ng-model="szukaj.cenaOd" /> -->
+    </div>
+</div>

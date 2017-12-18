@@ -1,0 +1,15 @@
+szczegoly ksiazki
+Przeslane id: {{book_id}}<br/>
+Przeslane id: {{book_url}}<br/>
+ID: {{book.id}}<br/>
+Tytuł: {{book.title}}<br/>
+Autor: {{book.author}}<br/>
+ISBN: {{book.isbn}}<br/>
+{{book.publisher}}<br/>
+{{book.yearOfPublish}}<br/>
+{{book.placeOfPublish}}<br/>
+Typ okładki:{{book.typeOfCover}}<br/>
+Opis: {{book.description}}<br/>
+
+<button ng-click="addToCart(book.id)" ng-show = "book.numberOfAvailablePieces > 0">Dodaj do koszyka</button>
+

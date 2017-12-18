@@ -1,0 +1,37 @@
+
+{{2+2}}
+
+<p>Cookie:{{mycookie}} </p>
+
+id {{book.id}} </br>
+category {{book.category.categoryName}}</br>
+title {{book.title}}</br>
+numberOfAvailablePieces {{book.numberOfAvailablePieces}}</br></br>
+
+<button ng-click="klik()">klik - 'wyloguj' {{klikval}}</button>
+
+</br>
+
+<button ng-click="callNotify1()">NOTIFY1</button>
+<button ng-click="callNotify()">NOTIFY</button>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Cena Jednostkowa</th>
+        <th>Ilość</th>
+        <th>Cena</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="cartItem in cartItems" >
+        <td> <a href="#!/bookDetails/{{cartItem.bookId}}">{{cartItem.title}}{{cartItem.bookId}}</a></td>
+        <td>{{cartItem.price}}</td>
+        <td><input ng-model="cartItem.quantity" ng-change="updateQuantity(cartItem.bookId, cartItem.quantity)" /></td>
+        <td>cena{{cartItem.price * cartItem.quantity}}</td>
+        <td><a href="#!/userCart" ng-click="deleteFromCart(cartItem.bookId)">Usuń z koszyka</a></td>
+    </tr>
+
+    </tbody>
+</table>

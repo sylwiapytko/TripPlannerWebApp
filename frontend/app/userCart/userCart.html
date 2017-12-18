@@ -1,0 +1,28 @@
+User Cart
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Cena Jednostkowa</th>
+        <th>Ilość</th>
+        <th>Cena</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="cartItem in cartItems" >
+        <td> <a href="#!/bookDetails/{{cartItem.bookId}}">{{cartItem.title}}{{cartItem.bookId}}</a></td>
+        <td>{{cartItem.price}}</td>
+        <td><input ng-model="cartItem.quantity" ng-change="updateQuantity(cartItem.bookId, cartItem.quantity)" /></td>
+        <td>{{cartItem.price * cartItem.quantity}}</td>
+        <td><a href="#!/userCart" ng-click="deleteFromCart(cartItem.bookId)">Usuń z koszyka</a></td>
+    </tr>
+
+    </tbody>
+</table>
+Podsumowanie:  {{ totalSum }}<br/>
+<a href="#!/bookList">Kontynuuj zakupy</a>
+<button ng-click="buy()">Buy</button>
+
+{{1+2}}
+</br>
