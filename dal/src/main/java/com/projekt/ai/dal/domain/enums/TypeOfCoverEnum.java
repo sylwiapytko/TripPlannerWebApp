@@ -19,4 +19,8 @@ public enum TypeOfCoverEnum {
     public String getName() {
         return name;
     }
+
+    public static TypeOfCoverEnum getTypeOfCoverByName(String name){
+        return TypeOfCoverEnum.valueOf(name);
+    }
 }

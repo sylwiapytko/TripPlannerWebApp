@@ -3,6 +3,7 @@ package com.projekt.ai.api.auth;
 import com.projekt.ai.common.app.AppData;
 import com.projekt.ai.common.app.BookstoreAppException;
 import com.projekt.ai.common.app.AppTools;
+import com.projekt.ai.common.app.Dictionary;
 import com.projekt.ai.dal.domain.enums.Role;
 import com.projekt.ai.dal.domain.enums.RoleParser;
 import io.jsonwebtoken.Claims;
@@ -39,7 +40,7 @@ public class CustomFilter extends OncePerRequestFilter {
             if(!StringUtils.isEmpty(token))
                 parseJSON(token);
             else
-                throw new BookstoreAppException("Nie ustawono tokena");
+                throw new BookstoreAppException(Dictionary.TOKEN_IS_NOT_SET);
         }
 
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:8000");

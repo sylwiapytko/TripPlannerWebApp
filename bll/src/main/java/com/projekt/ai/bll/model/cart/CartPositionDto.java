@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class CartPositionDto {
+    private Long bookId;
     private String title;
     private String author;
     private Double price;

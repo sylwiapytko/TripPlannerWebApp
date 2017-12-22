@@ -16,7 +16,6 @@ import java.io.Serializable;
 public class Stock implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
     private Long id;
 

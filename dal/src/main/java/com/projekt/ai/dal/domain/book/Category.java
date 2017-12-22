@@ -1,5 +1,6 @@
 package com.projekt.ai.dal.domain.book;
 
+import lombok.Data;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="CATEGORY")
-@Getter
+@Data
 public class Category implements Serializable {
 
     @Id

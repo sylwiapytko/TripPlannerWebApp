@@ -1,5 +1,6 @@
 package com.projekt.ai.api.auth;
 
+import com.projekt.ai.common.app.Dictionary;
 import com.projekt.ai.dal.domain.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
@@ -36,7 +37,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
                    return true;
             }
 
-            response.sendError(HttpServletResponse.SC_FORBIDDEN, "Użytkownik nie posiada wymaganych uprawnień");
+            response.sendError(HttpServletResponse.SC_FORBIDDEN, Dictionary.USER_HAS_NO_ACCESS);
             return false;
         }
 

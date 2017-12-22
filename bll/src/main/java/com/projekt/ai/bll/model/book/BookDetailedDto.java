@@ -1,8 +1,9 @@
 package com.projekt.ai.bll.model.book;
 
-import com.projekt.ai.dal.domain.book.Category;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Created by Lenovo on 2017-11-08.
@@ -10,9 +11,11 @@ import lombok.Data;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class BookDetailedDto {
     private Long id;
-    private Category category;
+    private String category;
     private String title;
     private String author;
     private long isbn;

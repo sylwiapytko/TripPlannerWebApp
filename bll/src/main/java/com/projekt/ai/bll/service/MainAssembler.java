@@ -8,9 +8,11 @@ import java.util.List;
  */
 
 
-public abstract class MainAssembler<In, Out> {
+public class MainAssembler<In, Out> {
 
-    public abstract Out toDto(In in);
+    public Out toDto(In in){
+        return null;
+    }
 
     public List<Out> toDtoList(List<In> inList){
         List<Out> listOut = new ArrayList<>();

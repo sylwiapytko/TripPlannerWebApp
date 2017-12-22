@@ -1,8 +1,7 @@
 package com.projekt.ai.dal.domain.book;
 
 import com.projekt.ai.dal.domain.enums.TypeOfCoverEnum;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,10 +13,14 @@ import java.io.Serializable;
 @Entity
 @Table(name="BOOK")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Book implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_BOOK")
+    @SequenceGenerator(name = "SEQ_BOOK", sequenceName = "SEQ_BOOK")
     @Column(name = "ID")
     private Long id;
 

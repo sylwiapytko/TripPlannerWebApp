@@ -94,7 +94,7 @@ public class CartService {
             InvoicePosition invoicePosition = new InvoicePosition();
             invoicePosition.setBook(cartPosition.getCartPositionId().getBook());
             invoicePosition.setQuantity(cartPosition.getQuantity());
-            invoicePosition.setPriceOfPosition(cartPosition.getCartPositionId().getBook().getPrice() * cartPosition.getQuantity());
+            invoicePosition.setPriceOfPosition(cartPosition.getCartPositionId().getBook().getPrice());
             invoicePositionList.add(invoicePosition);
         }
 

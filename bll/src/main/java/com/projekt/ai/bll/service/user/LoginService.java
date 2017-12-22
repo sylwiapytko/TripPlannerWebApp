@@ -6,6 +6,7 @@ import com.projekt.ai.bll.model.user.UserLoginOut;
 import com.projekt.ai.bll.model.user.UserRegisterIn;
 import com.projekt.ai.common.app.AppData;
 import com.projekt.ai.common.app.BookstoreAppException;
+import com.projekt.ai.common.app.Dictionary;
 import com.projekt.ai.dal.domain.enums.Role;
 import com.projekt.ai.dal.domain.user.Address;
 import com.projekt.ai.dal.domain.user.AddressRepository;
@@ -36,7 +37,12 @@ public class LoginService {
     @Autowired
     private AddressRepository addressRepository;
 
+    @Autowired
+    private RegistrationValidatorService registrationValidatorService;
+
     public void register(UserRegisterIn userRegisterIn) {
+        registrationValidatorService.validateUser(userRegisterIn);
+
         User user = new User();
         user.setUsername(userRegisterIn.getUsername());
         user.setPassword(userRegisterIn.getPassword());
@@ -61,7 +67,7 @@ public class LoginService {
         User user = userRepository.getUserByUsernameAndPassword(userLoginIn.getUsername(), userLoginIn.getPassword());
 
         if(user == null)
-            throw new BookstoreAppException("Niepoprawny login lub hasło");
+            throw new BookstoreAppException(Dictionary.INVALID_PASSES);
 
         UserLoginOut userLoginOut = new UserLoginOut();
         userLoginOut.setToken(generateToken(user));

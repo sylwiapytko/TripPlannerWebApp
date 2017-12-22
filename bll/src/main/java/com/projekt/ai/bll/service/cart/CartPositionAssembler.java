@@ -18,6 +18,7 @@ public class CartPositionAssembler extends MainAssembler<CartPosition, CartPosit
     @Override
     public CartPositionDto toDto(CartPosition cartPosition) {
         return CartPositionDto.builder()
+                .bookId(cartPosition.getCartPositionId().getBook().getId())
                 .title(cartPosition.getCartPositionId().getBook().getTitle())
                 .author(cartPosition.getCartPositionId().getBook().getAuthor())
                 .price(cartPosition.getCartPositionId().getBook().getPrice())
