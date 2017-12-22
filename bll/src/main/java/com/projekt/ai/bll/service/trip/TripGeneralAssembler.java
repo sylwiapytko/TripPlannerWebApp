@@ -1,10 +1,8 @@
 package com.projekt.ai.bll.service.trip;
 
-import com.projekt.ai.bll.model.book.BookGeneralDto;
 import com.projekt.ai.bll.model.trip.TripGeneralDto;
 import com.projekt.ai.bll.service.MainAssembler;
-import com.projekt.ai.dal.domain.Trip.Trip;
-import com.projekt.ai.dal.domain.book.Book;
+import com.projekt.ai.dal.domain.trip.Trip;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,6 +18,8 @@ public class TripGeneralAssembler extends MainAssembler<Trip, TripGeneralDto> {
                 .id(trip.getId())
                 .name(trip.getName())
                 .destination(trip.getDestination())
+                .date_from(trip.getDate_from())
+                .date_to(trip.getDate_to())
                 .build();
     }
 }

@@ -1,6 +1,5 @@
-package com.projekt.ai.dal.domain.Trip;
+package com.projekt.ai.dal.domain.trip;
 
-import com.projekt.ai.dal.domain.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

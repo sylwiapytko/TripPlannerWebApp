@@ -1,12 +1,10 @@
-package com.projekt.ai.dal.domain.Trip;
+package com.projekt.ai.dal.domain.trip;
 
-import com.projekt.ai.dal.domain.book.Category;
-import com.projekt.ai.dal.domain.book.Stock;
-import com.projekt.ai.dal.domain.enums.TypeOfCoverEnum;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * Created by Lenovo on 2017-11-06.
@@ -28,4 +26,10 @@ public class Trip implements Serializable {
 
     @Column(name = "DESTINATION")
     private String destination;
+
+    @Column(name = "DATE_FROM")
+    private Date date_from;
+
+    @Column(name = "DATE_TO")
+    private Date date_to;
 }
