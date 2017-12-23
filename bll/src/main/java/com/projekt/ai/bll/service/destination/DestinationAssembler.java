@@ -22,4 +22,15 @@ public class DestinationAssembler extends MainAssembler<Destination, Destination
                 .trip_id(destination.getTrip().getId())
                 .build();
     }
+    @Override
+    public Destination fromDto(DestinationDto input) {
+
+        return Destination.builder()
+                .id(input.getId())
+                .name(input.getName())
+                .date_from(input.getDate_from())
+                .date_to(input.getDate_to())
+                .trip(null)
+                .build();
+    }
 }

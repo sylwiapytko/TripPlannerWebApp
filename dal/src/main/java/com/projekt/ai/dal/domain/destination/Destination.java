@@ -1,7 +1,10 @@
 package com.projekt.ai.dal.domain.destination;
 
 import com.projekt.ai.dal.domain.trip.Trip;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +17,9 @@ import java.sql.Date;
 @Entity
 @Table(name="TRV_DESTINATION")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Destination implements Serializable {
 
     @Id

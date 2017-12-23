@@ -3,10 +3,7 @@ package com.projekt.ai.api.controller;
 import com.projekt.ai.bll.model.destination.DestinationDto;
 import com.projekt.ai.bll.service.destination.DestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,10 @@ public class DestinationController {
     @RequestMapping(value = "/getDestinations", method = RequestMethod.GET)
     public List<DestinationDto> getDestinations() {
         return destinationService.getDestinations();
+    }
+   
+    @RequestMapping(value = "/addDestinations", method = RequestMethod.POST)
+    public void addDestinations(@RequestBody List<DestinationDto> destinationDtoList) {
+        destinationService.addDestinations(destinationDtoList);
     }
 }

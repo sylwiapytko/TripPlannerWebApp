@@ -24,4 +24,16 @@ public class LodgingAssembler extends MainAssembler<Lodging, LodgingDto> {
                 .destination_id(lodging.getDestination().getId())
                 .build();
     }
+
+    @Override
+    public Lodging fromDto(LodgingDto input) {
+
+        return Lodging.builder()
+                .id(input.getId())
+                .name(input.getName())
+                .date_from(input.getDate_from())
+                .date_to(input.getDate_to())
+                .destination(null)
+                .build();
+    }
 }

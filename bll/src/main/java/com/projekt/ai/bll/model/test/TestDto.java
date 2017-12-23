@@ -1,4 +1,4 @@
-package com.projekt.ai.bll.model.transport;
+package com.projekt.ai.bll.model.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,15 +15,10 @@ import java.sql.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TransportDto {
+public class TestDto {
     private Long id;
     private String name;
-    private String transport_from;
-    private String transport_to;
+    private String destination;
     private Date date_from;
-    private Date date_to;
-    private Double price;
-    private String notes;
-    private Long trip_id;
 
 }

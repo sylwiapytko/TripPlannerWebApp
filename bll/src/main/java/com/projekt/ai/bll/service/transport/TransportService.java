@@ -4,6 +4,8 @@ import com.projekt.ai.bll.model.transport.TransportDto;
 import com.projekt.ai.bll.service.transport.TransportAssembler;
 import com.projekt.ai.dal.domain.transport.Transport;
 import com.projekt.ai.dal.domain.transport.TransportRepository;
+import com.projekt.ai.dal.domain.trip.Trip;
+import com.projekt.ai.dal.domain.trip.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ public class TransportService {
 
     @Autowired
     private TransportRepository transportRepository;
+    @Autowired
+    private TripRepository tripRepository;
 
     @Autowired
     private TransportAssembler transportAssembler;
@@ -30,5 +34,15 @@ public class TransportService {
     public TransportDto getTransport(Long id){
         Transport byId = transportRepository.findById(id);
         return transportAssembler.toDto(byId);
+    }
+    public void addTransports(List<TransportDto> transportDtoList) {
+
+        for (TransportDto transportDto : transportDtoList) {
+            Trip trip = tripRepository.findById(transportDto.getTrip_id());
+            Transport transport = transportAssembler.fromDto(transportDto);
+            transport.setTrip(trip);
+            Transport savedTransport = transportRepository.save(transport);
+
+        }
     }
 }

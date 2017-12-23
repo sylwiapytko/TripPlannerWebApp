@@ -3,10 +3,7 @@ package com.projekt.ai.api.controller;
 import com.projekt.ai.bll.model.trip.TripDto;
 import com.projekt.ai.bll.service.trip.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,10 @@ public class TripController {
     @RequestMapping(value = "/getTrips", method = RequestMethod.GET)
     public List<TripDto> getTrips() {
         return tripService.getTrips();
+    }
+
+    @RequestMapping(value = "/addTrips", method = RequestMethod.POST)
+    public void addTrips(@RequestBody List<TripDto> tripDtoList) {
+        tripService.addTrips(tripDtoList);
     }
 }

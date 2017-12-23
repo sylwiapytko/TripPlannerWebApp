@@ -1,8 +1,9 @@
 package com.projekt.ai.bll.model.destination;
 
-import com.projekt.ai.dal.domain.trip.Trip;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
@@ -12,6 +13,8 @@ import java.sql.Date;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class DestinationDto {
     private Long id;
     private String name;

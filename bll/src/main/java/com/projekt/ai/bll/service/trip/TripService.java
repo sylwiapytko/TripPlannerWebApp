@@ -3,6 +3,7 @@ package com.projekt.ai.bll.service.trip;
 import com.projekt.ai.bll.model.trip.TripDto;
 import com.projekt.ai.dal.domain.trip.Trip;
 import com.projekt.ai.dal.domain.trip.TripRepository;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +31,14 @@ public class TripService {
     public TripDto getTrip(Long id){
         Trip byId = tripRepository.findById(id);
         return tripAssembler.toDto(byId);
+    }
+
+    public void addTrips(List<TripDto> tripDtoList) {
+
+        for (TripDto tripDto : tripDtoList) {
+            Trip trip = tripAssembler.fromDto(tripDto);
+            Trip savedTrip = tripRepository.save(trip);
+
+        }
     }
 }

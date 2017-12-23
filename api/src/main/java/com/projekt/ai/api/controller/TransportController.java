@@ -3,10 +3,7 @@ package com.projekt.ai.api.controller;
 import com.projekt.ai.bll.model.transport.TransportDto;
 import com.projekt.ai.bll.service.transport.TransportService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +19,14 @@ public class TransportController {
     public TransportDto getTransport(@PathVariable("id") Long id) {
          return transportService.getTransport(id);
     }
+
     @RequestMapping(value = "/getTransports", method = RequestMethod.GET)
     public List<TransportDto> getTransports() {
         return transportService.getTransports();
+    }
+
+    @RequestMapping(value = "/addTransports", method = RequestMethod.POST)
+    public void addTransports(@RequestBody List<TransportDto> transportDtoList) {
+        transportService.addTransports(transportDtoList);
     }
 }

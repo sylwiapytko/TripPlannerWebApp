@@ -1,4 +1,4 @@
-package com.projekt.ai.dal.domain.trip;
+package com.projekt.ai.dal.domain.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,16 +14,16 @@ import java.sql.Date;
  */
 
 @Entity
-@Table(name="TRV_TRIP")
+@Table(name="TRV_TEST")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Trip implements Serializable {
+public class Test implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TRV_TRIP")
-    @SequenceGenerator(name = "SEQ_TRV_TRIP", sequenceName = "SEQ_TRV_TRIP")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TRV_TEST")
+    @SequenceGenerator(name = "SEQ_TRV_TEST", sequenceName = "SEQ_TRV_TEST")
 
     @Column(name = "ID")
     private Long id;
@@ -37,7 +37,4 @@ public class Trip implements Serializable {
 
     @Column(name = "DATE_FROM")
     private Date date_from;
-
-    @Column(name = "DATE_TO")
-    private Date date_to;
 }

@@ -43,9 +43,15 @@ public class BookService {
     public void addBooks(List<BookDetailedDto> bookDetailedDtoList) {
         for (BookDetailedDto bookDetailedDto : bookDetailedDtoList) {
             Category category = categoryRepository.findByCategoryName(bookDetailedDto.getCategory());
-
+            System.out.println("bookDetailedAssembler.fromDto");
             Book book = bookDetailedAssembler.fromDto(bookDetailedDto);
             book.setCategory(category);
+
+            System.out.println();
+            System.out.println();
+            System.out.println(book.getCategory() + " " +book.getAuthor() );
+            System.out.println();
+            System.out.println();
 
             Book savedBook = bookRepository.save(book);
 

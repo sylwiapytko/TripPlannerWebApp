@@ -19,10 +19,27 @@ public class TransportAssembler extends MainAssembler<Transport, TransportDto> {
                 .name(transport.getName())
                 .transport_from(transport.getTransport_from())
                 .transport_to(transport.getTransport_to())
+                .date_from(transport.getDate_from())
                 .date_to(transport.getDate_to())
                 .price(transport.getPrice())
                 .notes(transport.getNotes())
                 .trip_id(transport.getTrip().getId())
+                .build();
+    }
+
+    @Override
+    public Transport fromDto(TransportDto input) {
+
+        return Transport.builder()
+                .id(input.getId())
+                .name(input.getName())
+                .transport_from(input.getTransport_from())
+                .transport_to(input.getTransport_to())
+                .date_from(input.getDate_from())
+                .date_to(input.getDate_to())
+                .price(input.getPrice())
+                .notes(input.getNotes())
+                .trip(null)
                 .build();
     }
 }

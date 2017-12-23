@@ -3,6 +3,8 @@ package com.projekt.ai.bll.service.destination;
 import com.projekt.ai.bll.model.destination.DestinationDto;
 import com.projekt.ai.dal.domain.destination.Destination;
 import com.projekt.ai.dal.domain.destination.DestinationRepository;
+import com.projekt.ai.dal.domain.trip.Trip;
+import com.projekt.ai.dal.domain.trip.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,8 @@ public class DestinationService {
 
     @Autowired
     private DestinationRepository destinationRepository;
+    @Autowired
+    private TripRepository tripRepository;
 
     @Autowired
     private DestinationAssembler destinationAssembler;
@@ -29,5 +33,15 @@ public class DestinationService {
     public DestinationDto getDestination(Long id){
         Destination byId = destinationRepository.findById(id);
         return destinationAssembler.toDto(byId);
+    }
+    public void addDestinations(List<DestinationDto> destinationDtoList) {
+
+        for (DestinationDto destinationDto : destinationDtoList) {
+            Trip trip = tripRepository.findById(destinationDto.getTrip_id());
+            Destination destination = destinationAssembler.fromDto(destinationDto);
+            destination.setTrip(trip);
+            Destination savedDestination = destinationRepository.save(destination);
+
+        }
     }
 }

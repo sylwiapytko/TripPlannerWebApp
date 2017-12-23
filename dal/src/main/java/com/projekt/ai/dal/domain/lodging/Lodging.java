@@ -2,7 +2,10 @@ package com.projekt.ai.dal.domain.lodging;
 
 import com.projekt.ai.dal.domain.destination.Destination;
 import com.projekt.ai.dal.domain.trip.Trip;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,6 +18,9 @@ import java.sql.Date;
 @Entity
 @Table(name="TRV_LODGING")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Lodging implements Serializable {
 
     @Id
