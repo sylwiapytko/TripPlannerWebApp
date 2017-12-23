@@ -1,6 +1,6 @@
 package com.projekt.ai.bll.service.trip;
 
-import com.projekt.ai.bll.model.trip.TripGeneralDto;
+import com.projekt.ai.bll.model.trip.TripDto;
 import com.projekt.ai.bll.service.MainAssembler;
 import com.projekt.ai.dal.domain.trip.Trip;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class TripGeneralAssembler extends MainAssembler<Trip, TripGeneralDto> {
+public class TripGeneralAssembler extends MainAssembler<Trip, TripDto> {
 
     @Override
-    public TripGeneralDto toDto(Trip trip) {
-        return TripGeneralDto.builder()
+    public TripDto toDto(Trip trip) {
+        return TripDto.builder()
                 .id(trip.getId())
                 .name(trip.getName())
                 .destination(trip.getDestination())

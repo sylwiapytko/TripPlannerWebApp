@@ -1,6 +1,6 @@
-package com.projekt.ai.bll.model.trip;
+package com.projekt.ai.bll.model.destination;
 
-import com.projekt.ai.dal.domain.book.Category;
+import com.projekt.ai.dal.domain.trip.Trip;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,11 +12,11 @@ import java.sql.Date;
 
 @Data
 @Builder
-public class TripGeneralDto {
+public class DestinationDto {
     private Long id;
-    private String name;
     private String destination;
     private Date date_from;
     private Date date_to;
+    private Trip trip;
 
 }

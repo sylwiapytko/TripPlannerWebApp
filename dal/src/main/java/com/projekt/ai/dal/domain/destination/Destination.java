@@ -1,5 +1,6 @@
-package com.projekt.ai.dal.domain.trip;
+package com.projekt.ai.dal.domain.destination;
 
+import com.projekt.ai.dal.domain.trip.Trip;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,20 +12,19 @@ import java.sql.Date;
  */
 
 @Entity
-@Table(name="TRV_TRIP")
+@Table(name="TRV_DESTINATION")
 @Data
-public class Trip implements Serializable {
+public class Destination implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TRV_TRIP")
-    @SequenceGenerator(name = "SEQ_TRV_TRIP", sequenceName = "SEQ_TRV_TRIP")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TRV_DESTINATION")
+    @SequenceGenerator(name = "SEQ_TRV_DESTINATION", sequenceName = "SEQ_TRV_DESTINATION")
 
     @Column(name = "ID")
     private Long id;
 
-
-    @Column(name = "NAME")
-    private String name;
+    @ManyToOne
+    private Trip trip;
 
     @Column(name = "DESTINATION")
     private String destination;

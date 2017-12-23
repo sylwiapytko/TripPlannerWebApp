@@ -1,6 +1,6 @@
 package com.projekt.ai.bll.service.trip;
 
-import com.projekt.ai.bll.model.trip.TripGeneralDto;
+import com.projekt.ai.bll.model.trip.TripDto;
 import com.projekt.ai.dal.domain.trip.Trip;
 import com.projekt.ai.dal.domain.trip.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class TripService {
     private TripGeneralAssembler tripGeneralAssembler;
 
 
-    public List<TripGeneralDto> getTrips(){
+    public List<TripDto> getTrips(){
         List<Trip> all = tripRepository.findAll();
         return tripGeneralAssembler.toDtoList(all);
     }

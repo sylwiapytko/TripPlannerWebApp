@@ -19,7 +19,7 @@ public class AdminController {
     @Autowired
     private BookService bookService;
 
-    @Secured(Role.ADMIN)
+//    @Secured(Role.ADMIN)
     @RequestMapping(value = "/addBooks", method = RequestMethod.POST)
     public void addBooks(@RequestBody List<BookDetailedDto> bookDetailedDtoList) {
         bookService.addBooks(bookDetailedDtoList);
