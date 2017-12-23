@@ -27,5 +27,8 @@ public class TransportService {
         List<Transport> all = transportRepository.findAll();
         return transportAssembler.toDtoList(all);
     }
-
+    public TransportDto getTransport(Long id){
+        Transport byId = transportRepository.findById(id);
+        return transportAssembler.toDto(byId);
+    }
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class TripGeneralAssembler extends MainAssembler<Trip, TripDto> {
+public class TripAssembler extends MainAssembler<Trip, TripDto> {
 
     @Override
     public TripDto toDto(Trip trip) {

@@ -1,9 +1,11 @@
 package com.projekt.ai.bll.service.lodging;
 
 import com.projekt.ai.bll.model.lodging.LodgingDto;
+import com.projekt.ai.bll.model.transport.TransportDto;
 import com.projekt.ai.bll.service.lodging.LodgingAssembler;
 import com.projekt.ai.dal.domain.lodging.Lodging;
 import com.projekt.ai.dal.domain.lodging.LodgingRepository;
+import com.projekt.ai.dal.domain.transport.Transport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +29,8 @@ public class LodgingService {
         List<Lodging> all = lodgingRepository.findAll();
         return lodgingAssembler.toDtoList(all);
     }
-
+    public LodgingDto getLodging(Long id){
+        Lodging byId = lodgingRepository.findById(id);
+        return lodgingAssembler.toDto(byId);
+    }
 }

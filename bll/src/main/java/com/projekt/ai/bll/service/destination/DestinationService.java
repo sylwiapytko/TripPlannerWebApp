@@ -19,12 +19,15 @@ public class DestinationService {
     private DestinationRepository destinationRepository;
 
     @Autowired
-    private DestinationAssembler destinationGeneralAssembler;
+    private DestinationAssembler destinationAssembler;
 
 
     public List<DestinationDto> getDestinations(){
         List<Destination> all = destinationRepository.findAll();
-        return destinationGeneralAssembler.toDtoList(all);
+        return destinationAssembler.toDtoList(all);
     }
-
+    public DestinationDto getDestination(Long id){
+        Destination byId = destinationRepository.findById(id);
+        return destinationAssembler.toDto(byId);
+    }
 }

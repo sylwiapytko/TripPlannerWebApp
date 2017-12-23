@@ -19,12 +19,16 @@ public class TripService {
     private TripRepository tripRepository;
 
     @Autowired
-    private TripGeneralAssembler tripGeneralAssembler;
+    private TripAssembler tripAssembler;
 
 
     public List<TripDto> getTrips(){
         List<Trip> all = tripRepository.findAll();
-        return tripGeneralAssembler.toDtoList(all);
+        return tripAssembler.toDtoList(all);
     }
 
+    public TripDto getTrip(Long id){
+        Trip byId = tripRepository.findById(id);
+        return tripAssembler.toDto(byId);
+    }
 }
