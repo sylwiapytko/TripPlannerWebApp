@@ -22,7 +22,7 @@ public class TransportAssembler extends MainAssembler<Transport, TransportDto> {
                 .date_to(transport.getDate_to())
                 .price(transport.getPrice())
                 .notes(transport.getNotes())
-                .trip(transport.getTrip())
+                .trip_id(transport.getTrip().getId())
                 .build();
     }
 }

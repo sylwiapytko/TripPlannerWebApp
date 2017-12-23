@@ -19,9 +19,9 @@ public class LodgingAssembler extends MainAssembler<Lodging, LodgingDto> {
                 .name(lodging.getName())
                 .date_from(lodging.getDate_from())
                 .date_to(lodging.getDate_to())
-                .destination(lodging.getDestination())
                 .price(lodging.getPrice())
                 .notes(lodging.getNotes())
+                .destination_id(lodging.getDestination().getId())
                 .build();
     }
 }

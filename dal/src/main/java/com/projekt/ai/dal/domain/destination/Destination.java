@@ -26,8 +26,8 @@ public class Destination implements Serializable {
     @ManyToOne
     private Trip trip;
 
-    @Column(name = "DESTINATION")
-    private String destination;
+    @Column(name = "NAME")
+    private String name;
 
     @Column(name = "DATE_FROM")
     private Date date_from;

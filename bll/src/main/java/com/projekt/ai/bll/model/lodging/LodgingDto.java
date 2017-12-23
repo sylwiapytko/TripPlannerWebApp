@@ -20,6 +20,6 @@ public class LodgingDto {
     private Date date_to;
     private Double price;
     private String notes;
-    private Destination destination;
+    private Long destination_id;
 
 }

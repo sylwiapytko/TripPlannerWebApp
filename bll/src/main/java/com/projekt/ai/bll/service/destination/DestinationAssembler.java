@@ -16,10 +16,10 @@ public class DestinationAssembler extends MainAssembler<Destination, Destination
     public DestinationDto toDto(Destination destination) {
         return DestinationDto.builder()
                 .id(destination.getId())
-                .destination(destination.getDestination())
+                .name(destination.getName())
                 .date_from(destination.getDate_from())
                 .date_to(destination.getDate_to())
-                .trip(destination.getTrip())
+                .trip_id(destination.getTrip().getId())
                 .build();
     }
 }

@@ -14,9 +14,9 @@ import java.sql.Date;
 @Builder
 public class DestinationDto {
     private Long id;
-    private String destination;
+    private String name;
     private Date date_from;
     private Date date_to;
-    private Trip trip;
+    private Long trip_id;
 
 }

@@ -21,6 +21,6 @@ public class TransportDto {
     private Date date_to;
     private Double price;
     private String notes;
-    private Trip trip;
+    private Long trip_id;
 
 }
