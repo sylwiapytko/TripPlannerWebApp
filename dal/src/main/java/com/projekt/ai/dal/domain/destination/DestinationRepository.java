@@ -13,5 +13,6 @@ import java.util.List;
 @Repository
 public interface DestinationRepository extends JpaRepository<Destination, Long> {
     Destination findById(Long id);
+    List<Destination>  findByTrip_id(Long trip_id);
     List<Destination> findAll();
 }

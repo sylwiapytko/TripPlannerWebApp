@@ -27,6 +27,7 @@ public class CartController {
     @Secured(Role.USER)
     @RequestMapping(value = "/getCart", method = RequestMethod.GET)
     public List<CartPositionDto> getCart(@RequestParam Long userId) {
+
         return cartService.getCart(userId);
     }
 

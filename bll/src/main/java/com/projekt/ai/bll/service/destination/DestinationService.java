@@ -30,6 +30,10 @@ public class DestinationService {
         List<Destination> all = destinationRepository.findAll();
         return destinationAssembler.toDtoList(all);
     }
+    public List<DestinationDto> getTripDestinations(Long trip_id){
+        List<Destination> all  = destinationRepository.findByTrip_id(trip_id);
+        return destinationAssembler.toDtoList(all);
+    }
     public DestinationDto getDestination(Long id){
         Destination byId = destinationRepository.findById(id);
         return destinationAssembler.toDto(byId);

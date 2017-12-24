@@ -31,6 +31,10 @@ public class TransportService {
         List<Transport> all = transportRepository.findAll();
         return transportAssembler.toDtoList(all);
     }
+    public List<TransportDto> getTripTransport(Long trip_id) {
+        List<Transport> all = transportRepository.findByTrip_id(trip_id);
+        return transportAssembler.toDtoList(all);
+    }
     public TransportDto getTransport(Long id){
         Transport byId = transportRepository.findById(id);
         return transportAssembler.toDto(byId);
@@ -45,4 +49,6 @@ public class TransportService {
 
         }
     }
+
+
 }

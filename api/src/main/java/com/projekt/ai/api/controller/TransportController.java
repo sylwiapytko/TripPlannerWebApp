@@ -17,7 +17,12 @@ public class TransportController {
 
     @RequestMapping(value = "/getTransport/{id}", method = RequestMethod.GET)
     public TransportDto getTransport(@PathVariable("id") Long id) {
-         return transportService.getTransport(id);
+        return transportService.getTransport(id);
+    }
+
+    @RequestMapping(value = "/getTripTransport/{trip_id}", method = RequestMethod.GET)
+    public List<TransportDto> getTripTransport(@PathVariable("trip_id") Long trip_id) {
+        return transportService.getTripTransport(trip_id);
     }
 
     @RequestMapping(value = "/getTransports", method = RequestMethod.GET)

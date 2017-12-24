@@ -29,6 +29,12 @@ public class LodgingService {
         List<Lodging> all = lodgingRepository.findAll();
         return lodgingAssembler.toDtoList(all);
     }
+
+    public List<LodgingDto> getDestinationLodgings(Long destination_id){
+        List<Lodging> all = lodgingRepository.findByDestination_id(destination_id);
+        return lodgingAssembler.toDtoList(all);
+    }
+
     public LodgingDto getLodging(Long id){
         Lodging byId = lodgingRepository.findById(id);
         return lodgingAssembler.toDto(byId);

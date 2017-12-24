@@ -14,4 +14,6 @@ import java.util.List;
 public interface TransportRepository extends JpaRepository<Transport, Long> {
     Transport findById(Long id);
     List<Transport> findAll();
+
+    List<Transport> findByTrip_id(Long trip_id);
 }

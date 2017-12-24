@@ -19,6 +19,11 @@ public class LodgingController {
         return lodgingService.getLodging(id);
     }
 
+    @RequestMapping(value = "/getDestinationLodging/{desination_id}", method = RequestMethod.GET)
+    public List<LodgingDto>  getDestinationLodgings(@PathVariable("desination_id") Long desination_id) {
+        return lodgingService.getDestinationLodgings(desination_id);
+    }
+
     @RequestMapping(value = "/getLodgings", method = RequestMethod.GET)
     public List<LodgingDto> getLodgings() {
         return lodgingService.getLodgings();

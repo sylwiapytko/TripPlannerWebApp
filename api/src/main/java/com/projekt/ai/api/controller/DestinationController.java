@@ -19,11 +19,16 @@ public class DestinationController {
         return destinationService.getDestination(id);
     }
 
+    @RequestMapping(value = "/getTripDestinations/{trip_id}", method = RequestMethod.GET)
+    public List<DestinationDto> getTripDestinations(@PathVariable("trip_id") Long trip_id) {
+        return destinationService.getTripDestinations(trip_id);
+    }
+
     @RequestMapping(value = "/getDestinations", method = RequestMethod.GET)
     public List<DestinationDto> getDestinations() {
         return destinationService.getDestinations();
     }
-   
+
     @RequestMapping(value = "/addDestinations", method = RequestMethod.POST)
     public void addDestinations(@RequestBody List<DestinationDto> destinationDtoList) {
         destinationService.addDestinations(destinationDtoList);
