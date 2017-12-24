@@ -48,4 +48,10 @@ public class DestinationService {
 
         }
     }
+    public void updateDestination(DestinationDto destinationDto) {
+        Trip trip = tripRepository.findById(destinationDto.getTrip_id());
+        Destination destination = destinationAssembler.updateDto(destinationDto, destinationDto.getId());
+        destination.setTrip(trip);
+        Destination savedDestination = destinationRepository.save(destination);
+    }
 }

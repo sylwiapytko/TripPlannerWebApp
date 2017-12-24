@@ -33,4 +33,14 @@ public class TestAssembler extends MainAssembler<Test, TestDto> {
                 .date_from(input.getDate_from())
                 .build();
     }
+
+public Test updateDto(TestDto input, Long id) {
+
+    return Test.builder()
+            .id(id)
+            .name(input.getName())
+            .destination(input.getDestination())
+            .date_from(input.getDate_from())
+            .build();
+}
 }

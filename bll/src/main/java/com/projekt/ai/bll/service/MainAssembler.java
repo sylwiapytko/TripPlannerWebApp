@@ -25,7 +25,9 @@ public class MainAssembler<In, Out> {
     }
 
     public In fromDto(Out out){
-        System.out.println("mainasembler: fromDto");
+        return null;
+    }
+    public In updateDto(Out out, Long id){
         return null;
     }
 

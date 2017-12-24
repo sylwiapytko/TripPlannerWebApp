@@ -41,4 +41,8 @@ public class TripService {
 
         }
     }
+    public void updateTrip(TripDto tripDto) {
+            Trip trip = tripAssembler.updateDto(tripDto, tripDto.getId());
+            Trip savedTrip = tripRepository.save(trip);
+    }
 }

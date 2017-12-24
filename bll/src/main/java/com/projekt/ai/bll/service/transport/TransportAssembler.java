@@ -42,4 +42,19 @@ public class TransportAssembler extends MainAssembler<Transport, TransportDto> {
                 .trip(null)
                 .build();
     }
+    @Override
+    public Transport updateDto(TransportDto input, Long id) {
+
+        return Transport.builder()
+                .id(id)
+                .name(input.getName())
+                .transport_from(input.getTransport_from())
+                .transport_to(input.getTransport_to())
+                .date_from(input.getDate_from())
+                .date_to(input.getDate_to())
+                .price(input.getPrice())
+                .notes(input.getNotes())
+                .trip(null)
+                .build();
+    }
 }

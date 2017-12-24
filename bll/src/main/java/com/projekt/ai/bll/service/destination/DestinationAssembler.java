@@ -33,4 +33,16 @@ public class DestinationAssembler extends MainAssembler<Destination, Destination
                 .trip(null)
                 .build();
     }
+
+    @Override
+    public Destination updateDto(DestinationDto input, Long id) {
+
+        return Destination.builder()
+                .id(id)
+                .name(input.getName())
+                .date_from(input.getDate_from())
+                .date_to(input.getDate_to())
+                .trip(null)
+                .build();
+    }
 }

@@ -42,12 +42,10 @@ public class TestService {
 
         }
     }
-    public void updateTests(List<TestDto> testDtoList) {
 
-        for (TestDto testDto : testDtoList) {
-            Test test = testAssembler.fromDto(testDto);
-            Test savedTest = testRepository.save(test);
-
-        }
+    public void updateTests(TestDto testDto) {
+        Test test = testAssembler.updateDto(testDto, testDto.getId());
+        Test savedTest = testRepository.save(test);
     }
+
 }

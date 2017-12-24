@@ -28,4 +28,9 @@ public class TripController {
     public void addTrips(@RequestBody List<TripDto> tripDtoList) {
         tripService.addTrips(tripDtoList);
     }
+
+    @RequestMapping(value = "/updateTrip", method = RequestMethod.POST)
+    public void updateTrip(@RequestBody TripDto tripDto) {
+        tripService.updateTrip(tripDto);
+    }
 }

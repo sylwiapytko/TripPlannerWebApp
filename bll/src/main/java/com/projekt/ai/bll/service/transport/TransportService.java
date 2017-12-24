@@ -49,6 +49,12 @@ public class TransportService {
 
         }
     }
+    public void updateTransport(TransportDto transportDto) {
+        Trip trip = tripRepository.findById(transportDto.getTrip_id());
+        Transport transport = transportAssembler.updateDto(transportDto, transportDto.getId());
+        transport.setTrip(trip);
+        Transport savedTransport = transportRepository.save(transport);
+    }
 
 
 }

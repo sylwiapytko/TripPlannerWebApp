@@ -28,4 +28,9 @@ public class TestController {
     public void addTests(@RequestBody List<TestDto> testDtoList) {
         testService.addTests(testDtoList);
     }
+    @RequestMapping(value = "/updateTests", method = RequestMethod.POST)
+    public void updateTests(@RequestBody TestDto testDtoList) {
+        testService.updateTests(testDtoList);
+    }
+
 }

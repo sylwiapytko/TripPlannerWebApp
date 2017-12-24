@@ -50,4 +50,10 @@ public class LodgingService {
 
         }
     }
+    public void updateLodging(LodgingDto lodgingDto) {
+        Destination destination = destinationRepository.findById(lodgingDto.getDestination_id());
+        Lodging lodging = lodgingAssembler.updateDto(lodgingDto, lodgingDto.getId());
+        lodging.setDestination(destination);
+        Lodging savedLodging = lodgingRepository.save(lodging);
+    }
 }

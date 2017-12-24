@@ -34,4 +34,15 @@ public class TripAssembler extends MainAssembler<Trip, TripDto> {
                 .date_to(input.getDate_to())
                 .build();
     }
+    @Override
+    public Trip updateDto(TripDto input, Long id) {
+
+        return Trip.builder()
+                .id(id)
+                .name(input.getName())
+                .destination(input.getDestination())
+                .date_from(input.getDate_from())
+                .date_to(input.getDate_to())
+                .build();
+    }
 }

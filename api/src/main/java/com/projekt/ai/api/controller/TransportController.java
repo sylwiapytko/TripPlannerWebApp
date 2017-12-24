@@ -34,4 +34,8 @@ public class TransportController {
     public void addTransports(@RequestBody List<TransportDto> transportDtoList) {
         transportService.addTransports(transportDtoList);
     }
+    @RequestMapping(value = "/updateTransport", method = RequestMethod.POST)
+    public void updateTransport(@RequestBody TransportDto transportDto) {
+        transportService.updateTransport(transportDto);
+    }
 }

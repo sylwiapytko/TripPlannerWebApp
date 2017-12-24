@@ -33,4 +33,9 @@ public class LodgingController {
     public void addLodgings(@RequestBody List<LodgingDto> lodgingDtoList) {
         lodgingService.addLodgings(lodgingDtoList);
     }
+
+    @RequestMapping(value = "/updateLodging", method = RequestMethod.POST)
+    public void updateLodging(@RequestBody LodgingDto lodgingDto) {
+        lodgingService.updateLodging(lodgingDto);
+    }
 }

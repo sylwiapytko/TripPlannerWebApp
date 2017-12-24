@@ -33,6 +33,22 @@ public class LodgingAssembler extends MainAssembler<Lodging, LodgingDto> {
                 .name(input.getName())
                 .date_from(input.getDate_from())
                 .date_to(input.getDate_to())
+                .price(input.getPrice())
+                .notes(input.getNotes())
+                .destination(null)
+                .build();
+    }
+
+    @Override
+    public Lodging updateDto(LodgingDto input, Long id) {
+
+        return Lodging.builder()
+                .id(id)
+                .name(input.getName())
+                .date_from(input.getDate_from())
+                .date_to(input.getDate_to())
+                .price(input.getPrice())
+                .notes(input.getNotes())
                 .destination(null)
                 .build();
     }
