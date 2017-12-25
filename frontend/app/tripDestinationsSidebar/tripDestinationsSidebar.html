@@ -1,0 +1,21 @@
+<h4>Your trip destinations:</h4>
+<div ng-repeat="destination in destinations" class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title" >
+             <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{destination.id}}">
+                {{destination.name}}</a>
+        </h4>
+    </div>
+    <div id="collapse{{destination.id}}" class="collapse">
+        <div class="panel-body">
+            <p><a href="#!/tripAttractions"> Destination details</a></p>
+            <p><a href="#!/tripAttractions"> Lodging</a></p>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <h4 class="panel-title" >
+        <a href="#!/tripAttractions">
+            Add destination</a>
+    </h4>
+</div>
