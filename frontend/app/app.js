@@ -11,7 +11,9 @@ angular.module('myApp', [
     'myApp.tripAttractions',
     'myApp.viewMainMenu',
     'myApp.tripDestinationsSidebar',
-    'myApp.tripDestinationDetails'
+    'myApp.tripDestinationSections',
+    'myApp.tripDestinationDetails',
+    'myApp.tripDestinationLodging'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

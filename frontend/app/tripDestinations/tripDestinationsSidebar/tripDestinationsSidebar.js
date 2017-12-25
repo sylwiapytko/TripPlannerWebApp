@@ -4,7 +4,7 @@ angular.module('myApp.tripDestinationsSidebar', ['ngCookies'])
 
     .directive('tripDestinationsSidebar', function() {
         return {
-            templateUrl: "tripDestinationsSidebar/tripDestinationsSidebar.html",
+            templateUrl: "tripDestinations/tripDestinationsSidebar/tripDestinationsSidebar.html",
             controller: "tripDestinationsSidebarCtrl"
         };
     })
