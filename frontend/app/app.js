@@ -8,7 +8,9 @@ angular.module('myApp', [
   'myApp.version',
   'myApp.tripAdd', 
   'myApp.tripDetails',
-    'myApp.tripAttractions'
+    'myApp.tripAttractions',
+    'myApp.viewMainMenu',
+    'myApp.tripDestinations'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

@@ -1,15 +1,18 @@
-  <div>
 
-    <ul class="menu">
+<ul class="nav navbar-nav">
+    <li class="active"><a href="#">Home</a></li>
+
     <li>{{2+2}}</li>
-    <li><a href="#!/bookList">bookList</a></li>
     <li><a href="#!/view2">view2</a></li>
-    <li><a href="#!/bookDetails/1">Szczegoly</a></li>
     <li><a href="#!/userLogIn" ng-hide="userLoggedIn">userLogIn</a></li>
     <li><a href="#!/userRegistration" ng-hide="userLoggedIn">userRegistration</a></li>
     <li><a href="#!/userLoggedIn" ng-show="userLoggedIn">userLoggedIn</a></li>
-        <li><a href="#!/userCart" ng-show="userLoggedIn">userCart</a></li>
     <li><button ng-click="logOut()" ng-show="userLoggedIn">log out </button></li>
     <li>Hello {{userName}} </li>
-  </ul>
-</div>
+        <li><a href="#!/view1">view1</a></li>
+        <li><a href="#!/view2">view2</a></li>
+        <li><a href="#!/tripAdd">tripAdd</a></li>
+        <li><a href="#!/tripDetails">tripDetails</a></li>
+        <li><a href="#!/tripAttractions">tripAttractions</a></li>
+
+</ul>
