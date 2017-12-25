@@ -10,7 +10,8 @@ angular.module('myApp', [
   'myApp.tripDetails',
     'myApp.tripAttractions',
     'myApp.viewMainMenu',
-    'myApp.tripDestinationsSidebar'
+    'myApp.tripDestinationsSidebar',
+    'myApp.tripDestinationDetails'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

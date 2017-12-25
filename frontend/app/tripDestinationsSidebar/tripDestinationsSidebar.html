@@ -1,5 +1,6 @@
 <h4>Your trip destinations:</h4>
-<div ng-repeat="destination in destinations" class="panel panel-default">
+<div class="panel-group" id="accordion" >
+<div ng-repeat="destination in destinations" class="panel panel-default" >
     <div class="panel-heading">
         <h4 class="panel-title" >
              <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{destination.id}}">
@@ -15,7 +16,7 @@
 </div>
 <div class="panel panel-default">
     <h4 class="panel-title" >
-        <a href="#!/tripAttractions">
-            Add destination</a>
+        <a href="#!/tripAttractions">Add destination</a>
     </h4>
+</div>
 </div>
