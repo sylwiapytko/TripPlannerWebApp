@@ -3,14 +3,14 @@
 <div ng-repeat="destination in destinations" class="panel panel-default" >
     <div class="panel-heading">
         <h4 class="panel-title" >
-             <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{destination.id}}" href="#!/tripDestinationSections">
+             <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{destination.id}}" href="#!/tripDestinationSections/{{destination.id}}">
                 {{destination.name}}</a>
         </h4>
     </div>
     <div id="collapse{{destination.id}}" class="collapse">
         <div class="panel-body">
-            <p><a href="#!/tripDestinationSections#tripDestinationDetails"> Destination details</a></p>
-            <p><a href="#!/tripDestinationSections#tripDestinationLodging"> Lodging</a></p>
+            <p><a href="#!/tripDestinationSections/{{destination.id}}#tripDestinationDetails"> Destination details</a></p>
+            <p><a href="#!/tripDestinationSections/{{destination.id}}#tripDestinationLodging"> Lodging</a></p>
         </div>
     </div>
 </div>

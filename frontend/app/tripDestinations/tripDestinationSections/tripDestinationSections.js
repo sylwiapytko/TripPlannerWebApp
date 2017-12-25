@@ -3,7 +3,7 @@
 angular.module('myApp.tripDestinationSections', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/tripDestinationSections', {
+        $routeProvider.when('/tripDestinationSections/:id', {
             templateUrl: 'tripDestinations/tripDestinationSections/tripDestinationSections.html',
             controller: 'tripDestinationSectionsCtrl'
         });
