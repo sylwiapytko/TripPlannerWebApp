@@ -3,7 +3,44 @@ destination details
 {{test}}
 
 
-{{destination.id}}
-{{destination.name}}
-{{destination.date_from}}
-{{destination.date_to}}
+
+
+<form>
+    <div class="form-group">
+        <label>Name of destination:</label>
+        {{destination.name}}
+    </div>
+    <div layout-gt-xs="row">
+        <div flex-gt-xs>
+            <label>Date from:</label>
+            {{destination.date_from}}
+
+            <label>Date to :</label>
+            {{destination.date_to}}
+        </div>
+    </div>
+</form>
+Edit
+<form>
+    <div class="form-group">
+        <label>Name of destination:</label>
+        <input ng-model="destination.name">
+    </div>
+    <div layout-gt-xs="row">
+        <div flex-gt-xs>
+            <label>Date from:</label>
+            <md-datepicker ng-model="date_from" name="dateFrom"
+                           md-placeholder="Enter date"></md-datepicker>
+            <input ng-model="destination.date_from | date:'yyyy-MM-dd'">
+        </div>
+        <div flex-gt-xs>
+            <label>Date to :</label>
+            <md-datepicker ng-model="date_to" md-placeholder="Enter date"
+                           md-min-date="ctrl.dateFrom"></md-datepicker>
+            <input ng-model="destination.date_to | date:'yyyy-MM-dd'">
+        </div>
+    </div>
+</form>
+<button ng-click="editDestination()">Edit</button>
+
+<a href="!#/tripDestinationAddEdit/0" data-toggle="modal" data-target="#largeModal">Add destination</a>

@@ -12,7 +12,7 @@ angular.module('myApp.tripDestinationsSidebar', ['ngCookies','ui.bootstrap.datet
     .controller('tripDestinationsSidebarCtrl',
         function($scope, $http, $cookies, $rootScope) {
 
-            var url = "http://localhost:8080/api/trip/getTripDestinations/" + 1 //trip_id
+            var url = "http://localhost:8080/api/trip/getTripDestinations/" + 1; //trip_id
             $http.get(url).then(function(response) {
                 $scope.destinations = response.data;
             });

@@ -8,6 +8,15 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
             controller: 'tripDestinationAddEditCtrl'
         };
     })
+
+    .config(['$routeProvider', function($routeProvider) {
+        $routeProvider.when('/tripDestinationAddEdit/:id', {
+            templateUrl: 'tripDestinations/tripDestinationAddEdit/tripDestinationAddEdit.html',
+            controller: 'tripDestinationAddEditCtrl'
+        });
+    }])
     .controller('tripDestinationAddEditCtrl', function($scope, $http, $routeParams) {
 
+        $scope.test=$routeParams.id;
+        $scope.testw="test"
     });

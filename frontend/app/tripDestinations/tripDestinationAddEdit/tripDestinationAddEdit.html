@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label>Name of destination:</label>
+                        <label>Name of destination: {{test}}  {{destination.id}} :{{testw}}</label>
                         <input class="form-control">
                     </div>
                     <div layout-gt-xs="row">
@@ -16,18 +16,20 @@
                             <label>Date from:</label>
                             <md-datepicker ng-model="dateFrom" name="dateFrom"
                                            md-placeholder="Enter date"></md-datepicker>
+                            <input ng-model="dateFrom">
                         </div>
                         <div flex-gt-xs>
                             <label>Date to :</label>
                             <md-datepicker ng-model="dateTo" md-placeholder="Enter date"
                                            md-min-date="ctrl.dateFrom"></md-datepicker>
+                            <input ng-model="dateTo">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="">Save changes</button>
+                <button type="button" class="btn btn-primary" ng-click="saveDestination()">Save changes</button>
             </div>
         </div>
     </div>

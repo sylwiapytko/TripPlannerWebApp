@@ -14,5 +14,17 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
         var url = "http://localhost:8080/api/trip/getDestination/" + $routeParams.id;
         $http.get(url).then(function(response) {
             $scope.destination = response.data;
+            // $scope.destination.date_from =new Date($scope.destination.date_from);
         });
+        $scope.editDestination = function() {
+            var req = {
+                method: 'POST',
+                url: "http://localhost:8080/api/trip/addUpdateDestination",
+                data: $scope.destination
+            }
+
+            $http(req).then(function(response) {
+                alert("updated")
+            });
+        }
     });
