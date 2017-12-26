@@ -29,12 +29,9 @@ public class DestinationController {
         return destinationService.getDestinations();
     }
 
-    @RequestMapping(value = "/addDestinations", method = RequestMethod.POST)
-    public void addDestinations(@RequestBody List<DestinationDto> destinationDtoList) {
-        destinationService.addDestinations(destinationDtoList);
+    @RequestMapping(value = "/addUpdateDestinations", method = RequestMethod.POST)
+    public void addUpdateDestinations(@RequestBody DestinationDto destinationDto) {
+        destinationService.addUpdateDestinations(destinationDto);
     }
-    @RequestMapping(value = "/updateDestination", method = RequestMethod.POST)
-    public void updateDestination(@RequestBody DestinationDto DestinationDto) {
-        destinationService.updateDestination(DestinationDto);
-    }
+
 }

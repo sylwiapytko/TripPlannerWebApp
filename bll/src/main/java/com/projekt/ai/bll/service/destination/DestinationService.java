@@ -38,20 +38,11 @@ public class DestinationService {
         Destination byId = destinationRepository.findById(id);
         return destinationAssembler.toDto(byId);
     }
-    public void addDestinations(List<DestinationDto> destinationDtoList) {
-
-        for (DestinationDto destinationDto : destinationDtoList) {
+    public void addUpdateDestinations(DestinationDto destinationDto) {
             Trip trip = tripRepository.findById(destinationDto.getTrip_id());
             Destination destination = destinationAssembler.fromDto(destinationDto);
             destination.setTrip(trip);
-            Destination savedDestination = destinationRepository.save(destination);
+             destinationRepository.save(destination);
+    }
 
-        }
-    }
-    public void updateDestination(DestinationDto destinationDto) {
-        Trip trip = tripRepository.findById(destinationDto.getTrip_id());
-        Destination destination = destinationAssembler.updateDto(destinationDto, destinationDto.getId());
-        destination.setTrip(trip);
-        Destination savedDestination = destinationRepository.save(destination);
-    }
 }
