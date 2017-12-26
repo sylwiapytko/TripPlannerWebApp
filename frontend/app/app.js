@@ -13,7 +13,10 @@ angular.module('myApp', [
     'myApp.tripDestinationsSidebar',
     'myApp.tripDestinationSections',
     'myApp.tripDestinationDetails',
-    'myApp.tripDestinationLodging'
+    'myApp.tripDestinationLodging',
+    'myApp.tripDestinationAddEdit',
+    'ui.bootstrap.datetimepicker',
+    'myApp.datetimePicker'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

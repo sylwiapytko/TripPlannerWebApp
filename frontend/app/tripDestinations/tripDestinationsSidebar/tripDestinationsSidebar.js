@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.tripDestinationsSidebar', ['ngCookies'])
+angular.module('myApp.tripDestinationsSidebar', ['ngCookies','ui.bootstrap.datetimepicker'])
 
     .directive('tripDestinationsSidebar', function() {
         return {
