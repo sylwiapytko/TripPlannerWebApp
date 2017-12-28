@@ -10,6 +10,7 @@ angular.module('myApp', [
   'myApp.tripDetails',
     'myApp.tripAttractions',
     'myApp.viewMainMenu',
+    'myApp.viewUserMenu',
     'myApp.tripDestinationsSidebar',
     'myApp.tripDestinationSections',
     'myApp.tripDestinationDetails',
