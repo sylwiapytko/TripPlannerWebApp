@@ -19,7 +19,7 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
         $scope.editDestination = function() {
             var req = {
                 method: 'POST',
-                url: "http://localhost:8080/api/trip/addUpdateDestination",
+                url: "http://localhost:8080/api/trip/addUpdateDestinations",
                 data: $scope.destination
             }
 
