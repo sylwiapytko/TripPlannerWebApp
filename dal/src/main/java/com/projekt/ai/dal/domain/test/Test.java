@@ -32,10 +32,4 @@ public class Test implements Serializable {
 
     @Column(name = "NAME")
     private String name;
-
-    @Column(name = "DESTINATION")
-    private String destination;
-
-    @Column(name = "DATE_FROM")
-    private Date date_from;
 }

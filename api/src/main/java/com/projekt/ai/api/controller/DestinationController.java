@@ -3,6 +3,7 @@ package com.projekt.ai.api.controller;
 import com.projekt.ai.bll.model.destination.DestinationDto;
 import com.projekt.ai.bll.service.destination.DestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class DestinationController {
         return destinationService.getDestinations();
     }
 
-    @RequestMapping(value = "/addUpdateDestinations", method = RequestMethod.POST)
+    @PostMapping(value = "/addUpdateDestinations", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addUpdateDestinations(@RequestBody DestinationDto destinationDto) {
         destinationService.addUpdateDestinations(destinationDto);
     }

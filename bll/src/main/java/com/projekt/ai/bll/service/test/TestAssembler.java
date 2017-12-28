@@ -18,8 +18,6 @@ public class TestAssembler extends MainAssembler<Test, TestDto> {
         return TestDto.builder()
                 .id(test.getId())
                 .name(test.getName())
-                .destination(test.getDestination())
-                .date_from(test.getDate_from())
                 .build();
     }
 
@@ -29,8 +27,6 @@ public class TestAssembler extends MainAssembler<Test, TestDto> {
 
         return Test.builder()
                 .name(input.getName())
-                .destination(input.getDestination())
-                .date_from(input.getDate_from())
                 .build();
     }
 
@@ -39,8 +35,6 @@ public Test updateDto(TestDto input, Long id) {
     return Test.builder()
             .id(id)
             .name(input.getName())
-            .destination(input.getDestination())
-            .date_from(input.getDate_from())
             .build();
 }
 }

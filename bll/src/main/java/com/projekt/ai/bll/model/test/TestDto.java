@@ -19,7 +19,5 @@ import java.sql.Timestamp;
 public class TestDto {
     private Long id;
     private String name;
-    private String destination;
-    private Date date_from;
 
 }
