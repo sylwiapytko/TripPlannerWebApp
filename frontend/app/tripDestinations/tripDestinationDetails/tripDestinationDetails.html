@@ -29,15 +29,13 @@ Edit
     <div layout-gt-xs="row">
         <div flex-gt-xs>
             <label>Date from:</label>
-            <md-datepicker ng-model="date_from" name="dateFrom"
+            <md-datepicker ng-model="dateFrom" name="dateFrom"
                            md-placeholder="Enter date"></md-datepicker>
-            <input ng-model="destination.date_from | date:'yyyy-MM-dd'">
         </div>
         <div flex-gt-xs>
             <label>Date to :</label>
-            <md-datepicker ng-model="date_to" md-placeholder="Enter date"
+            <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
                            md-min-date="ctrl.dateFrom"></md-datepicker>
-            <input ng-model="destination.date_to | date:'yyyy-MM-dd'">
         </div>
     </div>
 </form>
