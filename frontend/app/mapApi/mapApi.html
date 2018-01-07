@@ -3,6 +3,8 @@ Auto Complete Type:
     <option value="['geocode']">Geodode</option>
     <option value="['establishment']">Establishment</option>
     <option value="['address']">Address</option>
+    <option value="['(cities)']">cities</option>
+    <option value="['(regions)']">regions</option>
 </select><br/>
 
 Enter an address: <br/>
@@ -15,7 +17,8 @@ Enter an address: <br/>
     Location: {{place.geometry.location}}<br/>
 </div>
 address : {{address}}
-<ng-map></ng-map>
+mapzoom: {{mapZoom}}
+<ng-map zoom={{mapZoom}} center="[0,0]"><marker position={{address}} title="Hello World!"></marker></ng-map>
 
 
 

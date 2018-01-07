@@ -9,16 +9,15 @@ angular.module('myApp.mapApi', ['ngRoute', 'ngMap'])
         };
     })
     .controller('mapApiCtrl', function($scope, NgMap) {
-        alert("mapApi")
         $scope.types = "['establishment']";
+        $scope.mapZoom=1;
+
         $scope.placeChanged = function() {
-            alert("placechannge")
             $scope.place = this.getPlace();
             console.log('location', $scope.place.geometry.location);
             $scope.map.setCenter($scope.place.geometry.location);
         }
         NgMap.getMap().then(function(map) {
-            alert("get Map")
             $scope.map = map;
         });
     });
