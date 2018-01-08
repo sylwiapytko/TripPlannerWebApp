@@ -39,6 +39,5 @@ Edit
         </div>
     </div>
 </form>
-<button ng-click="editDestination()">Edit</button>
-
-<a href="!#/tripDestinationAddEdit/0" data-toggle="modal" data-target="#largeModal">Add destination</a>
+<button class="btn btn-primary btn-md" ng-click="tripDestinationAddEdit.open(destination)">Edit destination</button>
+<trip-destination-add-edit model="tripDestinationAddEdit"></trip-destination-add-edit>

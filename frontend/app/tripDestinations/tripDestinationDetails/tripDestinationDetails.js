@@ -35,4 +35,7 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
                 alert("updated")
             });
         }
+
+        $scope.tripDestinationAddEdit = new tripDestinationAddEditDialogModel();
+
     });

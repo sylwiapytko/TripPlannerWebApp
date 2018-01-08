@@ -10,11 +10,14 @@ angular.module('myApp.tripDestinationsSidebar', ['ngCookies','ui.bootstrap.datet
     })
 
     .controller('tripDestinationsSidebarCtrl',
-        function($scope, $http, $cookies, $rootScope) {
+        function($scope, $http, $cookies, $rootScope, $uibModal, $log, $document) {
 
             var url = "http://localhost:8080/api/trip/getTripDestinations/" + 1; //trip_id
             $http.get(url).then(function(response) {
                 $scope.destinations = response.data;
             });
+
+            $scope.tripDestinationAddEdit = new tripDestinationAddEditDialogModel();
+
 
         });
