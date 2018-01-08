@@ -15,7 +15,7 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
             controller: 'tripDestinationAddEditCtrl'
         });
     }])
-    .controller('tripDestinationAddEditCtrl', function($scope, $http, $routeParams) {
+    .controller('tripDestinationAddEditCtrl', function($scope, $http, $rootScope, $routeParams) {
 
 
         $scope.destination={
@@ -34,7 +34,7 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
 
             }
             $http(req).then(function(data){
-                $route.reload();
+                $rootScope.$broadcast('destinationAdded');
             });
         }
     });
