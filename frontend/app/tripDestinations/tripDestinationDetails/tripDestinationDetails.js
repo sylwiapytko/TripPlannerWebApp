@@ -10,7 +10,7 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
     })
     .config(['$mdDateLocaleProvider', function($mdDateLocaleProvider) { $mdDateLocaleProvider.formatDate = function(date) {
         if (moment(date).isValid()) {
-            return moment(date).format("DD.MM.YYYY");
+            return moment(date).format("YYYY-MM-DD");
         }
         return null;
     };

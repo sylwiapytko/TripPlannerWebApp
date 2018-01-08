@@ -17,6 +17,24 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
     }])
     .controller('tripDestinationAddEditCtrl', function($scope, $http, $routeParams) {
 
-        $scope.test=$routeParams.id;
-        $scope.testw="test"
+
+        $scope.destination={
+            "id": 0,
+            "name": "",
+            "date_from": "2018-01-08",
+            "date_to": "2018-01-08",
+            "trip_id": 1
+        }
+        $scope.saveDestination = function() {
+            var req = {
+                method: 'POST',
+                url: "http://localhost:8080/api/trip/addUpdateDestinations",
+                // headers: {"access_token": $cookies.get("access_token")},
+                data: $scope.destination
+
+            }
+            $http(req).then(function(data){
+                $route.reload();
+            });
+        }
     });
