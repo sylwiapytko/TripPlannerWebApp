@@ -13,16 +13,19 @@ angular.module('myApp.tripDestinationsSidebar', ['ngCookies', 'ui.bootstrap.date
         function ($scope, $http, $cookies, $rootScope) {
 
             $rootScope.$on('destinationAdded', function () {
-                loadDestinations();
+                getDestinations();
             });
 
-            var loadDestinations = function () {
+            $scope.addDestination = function () {
+                $rootScope.$broadcast('addDestination');
+            }
+
+            var getDestinations = function () {
                 var url = "http://localhost:8080/api/trip/getTripDestinations/" + 1; //trip_id
                 $http.get(url).then(function (response) {
                     $scope.destinations = response.data;
                 });
             }
-            loadDestinations();
-
+            getDestinations();
 
         });
