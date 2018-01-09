@@ -19,7 +19,8 @@ angular.module('myApp', [
     'ui.bootstrap.datetimepicker',
     'myApp.datetimePicker',
     'myApp.userLogIn',
-    'myApp.mapApi'
+    'myApp.mapApi',
+    'myApp.viewTemplate'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

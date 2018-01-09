@@ -61,14 +61,8 @@
     <script src="tripDestinations/tripDestinationAddEdit/tripDestinationAddEdit.js"></script>
     <script src="forms/datetimePicker/datetimePicker.js"></script>
     <script src="userLogIn/userLogIn.js"></script>
-
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
     <script src="mapApi/mapApi.js"></script>
+    <script src="viewTemplate/viewTemplate.js"></script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,60 +74,7 @@
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="20" ng-cloak>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Logo{{1+2}}</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <view-main-menu-dir></view-main-menu-dir>
-            <view-user-menu-dir></view-user-menu-dir>
-        </div>
-    </div>
-</nav>
-
-<div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-2 sidenav">
-            <trip-destinations-sidebar></trip-destinations-sidebar>
-        </div>
-        <div class="col-sm-8 text-left">
-
-
-
-            test
-            <div ng-view></div>
-            <datetime-picker></datetime-picker>
-
-            <!--EMBED MAP-->
-            <!--<div id="map"></div>-->
-            <!--<script src="assets/scripts/mapApiScript.js"></script>-->
-            <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1NBgwU65FgcrJzLdpkGkxNCYz_9x6_xc&callback=initMap"> </script>-->
-            <!--&lt;!&ndash;javascript api key AIzaSyC1NBgwU65FgcrJzLdpkGkxNCYz_9x6_xc&ndash;&gt;-->
-
-            <!--STATIC MAP-->
-            <!--<iframe-->
-            <!--width="600"-->
-            <!--height="450"-->
-            <!--frameborder="0" style="border:0"-->
-            <!--src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDDryfx3TmLI2KwzVAosDaTHHymBK5TL30&q=TORUN" allowfullscreen>-->
-            <!--</iframe>-->
-            <!--&lt;!&ndash;my api key maps AIzaSyDDryfx3TmLI2KwzVAosDaTHHymBK5TL30&ndash;&gt;-->
-
-        </div>
-        
-    </div>
-</div>
-
-<footer class="container-fluid text-center">
-    <p>Footer Text</p>
-</footer>
-
+<view-template></view-template>
 
 </body>
 </html>
