@@ -1,4 +1,7 @@
 /* Remove the navbar's default margin-bottom and rounded borders */
+body {
+    position: relative;
+}
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -56,4 +59,7 @@ footer {
     padding: 10px 15px;
     margin: -10px -15px;
     vertical-align: middle;
+}
+.pac-container {
+    z-index: 10000 !important;
 }

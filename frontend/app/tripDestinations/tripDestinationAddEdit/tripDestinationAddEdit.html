@@ -8,8 +8,11 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label>Name of destination: {{test}}  {{destination.id}} :{{testw}}</label>
-                        <input class="form-control" ng-model="destination.name">
+                        <label>Name of destination: </label>
+                        <input places-auto-complete size=80
+                               ng-model="destination.name"
+                               types="['(cities)']"
+                               on-place-changed="placeChanged()" /> <br/>
                     </div>
                     <div layout-gt-xs="row">
                         <div flex-gt-xs>

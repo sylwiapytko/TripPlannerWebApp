@@ -1,20 +1,25 @@
-
 <form>
     <div class="form-group">
-        <label>Name of destination:</label>
-        {{destination.name}}
-    </div>
-    <div layout-gt-xs="row">
-        <div flex-gt-xs>
-            <label>Date from:</label>
-            <md-datepicker ng-model="dateFrom" name="dateFrom"
-                           disabled=""></md-datepicker>
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Name of destination:</label>
+                {{destination.name}}
+                <div layout-gt-xs="row">
+                    <div flex-gt-xs>
+                        <label>Date from:</label>
+                        <md-datepicker ng-model="dateFrom" name="dateFrom"
+                                       disabled=""></md-datepicker>
+                    </div>
+                    <div flex-gt-xs>
+                        <label>Date to :</label>
+                        <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
+                                       disabled=""></md-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <ng-map center="{{destination.name}}"></ng-map>
+            </div>
         </div>
-        <div flex-gt-xs>
-            <label>Date to :</label>
-            <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
-                           disabled=""></md-datepicker>
-        </div>
-    </div>
 </form>
 <a href="" data-toggle="modal" data-target="#largeModal" ng-click="editDestination()">Edit destination</a>
