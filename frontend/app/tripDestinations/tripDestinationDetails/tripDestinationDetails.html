@@ -1,9 +1,3 @@
-destination details
-{{2+1}}
-{{test}}
-
-
-
 
 <form>
     <div class="form-group">
@@ -13,29 +7,13 @@ destination details
     <div layout-gt-xs="row">
         <div flex-gt-xs>
             <label>Date from:</label>
-            {{destination.date_from}}
-
-            <label>Date to :</label>
-            {{destination.date_to}}
-        </div>
-    </div>
-</form>
-Edit
-<form>
-    <div class="form-group">
-        <label>Name of destination:</label>
-        <input ng-model="destination.name">
-    </div>
-    <div layout-gt-xs="row">
-        <div flex-gt-xs>
-            <label>Date from:</label>
             <md-datepicker ng-model="dateFrom" name="dateFrom"
-                           md-placeholder="Enter date"></md-datepicker>
+                           disabled=""></md-datepicker>
         </div>
         <div flex-gt-xs>
             <label>Date to :</label>
             <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
-                           md-min-date="ctrl.dateFrom"></md-datepicker>
+                           disabled=""></md-datepicker>
         </div>
     </div>
 </form>
