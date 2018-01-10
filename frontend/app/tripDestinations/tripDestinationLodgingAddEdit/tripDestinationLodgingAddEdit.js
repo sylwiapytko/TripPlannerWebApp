@@ -19,15 +19,15 @@ angular.module('myApp.tripDestinationLodgingAddEdit', ['ngRoute'])
 
 
         $rootScope.$on('editLodging', function () {
+
             var url = "http://localhost:8080/api/trip/getDestinationLodging/" + $routeParams.id;
             $http.get(url).then(function(response) {
                 $scope.lodging = response.data;
-                $scope.lodging.date_from =new Date($scope.lodging.date_from);
-                $scope.lodging.date_to =new Date($scope.lodging.date_to);
             });
         });
 
         $scope.saveLodging = function() {
+            $scope.lodging.destination_id=$routeParams.id;
             var req = {
                 method: 'POST',
                 url: "http://localhost:8080/api/trip/addUpdateLodging",
