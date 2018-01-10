@@ -71,4 +71,13 @@ angular.module('myApp.tripScheduler', ['ngRoute', 'daypilot'])
                     "end":"2018-01-11T12:30:00"
                 }
             ];
+        $scope.events2 =
+            {
+                "id": "12",
+                "text": "Test2",
+                "start": "2018-01-10T12:00:00",
+                "end": "2018-01-10T16:30:00"
+            }
+        ;
+            $scope.events.push($scope.events2);
     });
