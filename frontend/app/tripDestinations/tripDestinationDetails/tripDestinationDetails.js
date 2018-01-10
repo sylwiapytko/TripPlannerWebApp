@@ -15,7 +15,7 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
         return null;
     };
     }])
-    .controller('tripDestinationDetailsCtrl', function($scope, $http, $routeParams, $rootScope) {
+    .controller('tripDestinationDetailsCtrl', function($scope, $http, $routeParams, $rootScope, $mdDialog) {
 
         $rootScope.$on('destinationAdded', function () {
             getDestination();
@@ -25,12 +25,24 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
             $rootScope.$broadcast('editDestination');
         }
         $scope.deleteDestination = function () {
-            var url = "http://localhost:8080/api/trip/deleteDestination/" + $routeParams.id;
-            $http.get(url).then(function(response) {
-                $rootScope.$broadcast('destinationAdded');
-                window.location.href = "#!/view1";
+            var confirm = $mdDialog.confirm()
+                .title('Delete destination')
+                .textContent('Do you want to delete destination '+ $scope.destination.name+' ?')
+                .ariaLabel('Lucky day')
+                .ok('Delete')
+                .cancel('Cancel');
+
+            $mdDialog.show(confirm).then(function() {
+                var url = "http://localhost:8080/api/trip/deleteDestination/" + $routeParams.id;
+                $http.get(url).then(function(response) {
+                    $rootScope.$broadcast('destinationDeleted');
+                    window.location.href = "#!/view1";
+                });
+            }, function() {
+                console.log("canceled deletina")
             });
-        }
+
+        };
         var getDestination = function () {
             var url = "http://localhost:8080/api/trip/getDestination/" + $routeParams.id;
             $http.get(url).then(function(response) {

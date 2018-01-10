@@ -15,6 +15,9 @@ angular.module('myApp.tripDestinationsSidebar', ['ngCookies', 'ui.bootstrap.date
             $rootScope.$on('destinationAdded', function () {
                 getDestinations();
             });
+            $rootScope.$on('destinationDeleted', function () {
+                getDestinations();
+            });
 
             $scope.addDestination = function () {
                 $rootScope.$broadcast('addDestination');
