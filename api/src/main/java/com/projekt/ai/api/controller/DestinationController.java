@@ -34,8 +34,8 @@ public class DestinationController {
     public void addUpdateDestinations(@RequestBody DestinationDto destinationDto) {
         destinationService.addUpdateDestinations(destinationDto);
     }
-    @PostMapping(value = "/deleteDestination", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteDestination(@RequestParam Long destinationId) {
+    @RequestMapping(value = "/deleteDestination/{destination_id}", method = RequestMethod.GET)
+    public void deleteDestination(@PathVariable("destination_id") Long destinationId) {
         destinationService.deleteDestination(destinationId);
     }
 
