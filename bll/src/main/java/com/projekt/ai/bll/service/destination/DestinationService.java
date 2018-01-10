@@ -44,5 +44,8 @@ public class DestinationService {
             destination.setTrip(trip);
              destinationRepository.save(destination);
     }
+    public void deleteDestination(Long destinationId) {
+        destinationRepository.delete(destinationId);
+    }
 
 }
