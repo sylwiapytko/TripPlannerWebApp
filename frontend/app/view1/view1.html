@@ -4,3 +4,13 @@
     <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
 </div>
 <!--<md-calendar ng-model="birthday"></md-calendar>-->
+
+<input time="false" date="true" mdc-datetime-picker="" type="text" id="date" placeholder="Date"
+       ng-model="date" min-date="minDate" max-date="maxDate" class=" md-input" readonly="readonly">
+
+<md-container flex-gt-md="30">
+    <label>Timepicker Only</label>
+    <input mdc-datetime-picker="" date="false" time="true" type="text" id="time2"
+           placeholder="Time" min-date="minDate" format="HH:mm" ng-model="time" class=" md-input"
+           readonly="readonly">
+</md-container>

@@ -1,10 +1,11 @@
-
-<div class="container">
-    <div class="row">
-
+<div class="container main-center">
+    <div class="panel-group" >
             <div id="tripDestinationDetails">
-                <h1>Destination details</h1>
-                <trip-destination-details></trip-destination-details>
+                <div class="panel-primary">
+                <div class="panel-heading">Destination details</div>
+                <div class="panel-body"><trip-destination-details></trip-destination-details></div>
+                <div class="panel-footer"><a href="" data-toggle="modal" data-target="#largeModal" ng-click="editDestination()">Edit destination</a></div>
+                </div>
             </div>
             <div id="tripDestinationLodging">
                 <h1>Lodging</h1>
@@ -20,5 +21,18 @@
                 <p>Try to scroll  this section and look at the navigation list while scrolling!</p>
             </div>
 
+    </div>
+</div>
+
+
+<div class="container main-center">
+    <div class="panel-group" >
+        <div ng-repeat="book in books | filter:search" class="panel panel-primary" >
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+            </div>
+
+        </div>
     </div>
 </div>

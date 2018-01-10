@@ -1,43 +1,25 @@
-destination details
-{{2+1}}
-{{test}}
-
-
-
-
 <form>
     <div class="form-group">
-        <label>Name of destination:</label>
-        {{destination.name}}
-    </div>
-    <div layout-gt-xs="row">
-        <div flex-gt-xs>
-            <label>Date from:</label>
-            {{destination.date_from}}
-
-            <label>Date to :</label>
-            {{destination.date_to}}
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Name of destination:</label>
+                {{destination.name}}
+                <div layout-gt-xs="row">
+                    <div flex-gt-xs>
+                        <label>Date from:</label>
+                        <md-datepicker ng-model="dateFrom" name="dateFrom"
+                                       disabled=""></md-datepicker>
+                    </div>
+                    <div flex-gt-xs>
+                        <label>Date to :</label>
+                        <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
+                                       disabled=""></md-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <ng-map center="{{destination.name}}"></ng-map>
+            </div>
         </div>
-    </div>
 </form>
-Edit
-<form>
-    <div class="form-group">
-        <label>Name of destination:</label>
-        <input ng-model="destination.name">
-    </div>
-    <div layout-gt-xs="row">
-        <div flex-gt-xs>
-            <label>Date from:</label>
-            <md-datepicker ng-model="dateFrom" name="dateFrom"
-                           md-placeholder="Enter date"></md-datepicker>
-        </div>
-        <div flex-gt-xs>
-            <label>Date to :</label>
-            <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
-                           md-min-date="ctrl.dateFrom"></md-datepicker>
-        </div>
-    </div>
-</form>
-<button class="btn btn-primary btn-md" ng-click="tripDestinationAddEdit.open(destination)">Edit destination</button>
-<trip-destination-add-edit model="tripDestinationAddEdit"></trip-destination-add-edit>
+<a href="" data-toggle="modal" data-target="#largeModal" ng-click="editDestination()">Edit destination</a>

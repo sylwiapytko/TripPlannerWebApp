@@ -16,8 +16,10 @@
 </div>
 <div class="panel panel-default">
     <h4 class="panel-title" >
-        <button class="btn btn-md" ng-click="tripDestinationAddEdit.open('0')">Add destination</button>
+        <a href="" data-toggle="modal" data-target="#largeModal" ng-click="addDestination()">Add destination</a>
+        <a href="#" ng-click="open()">Add destination2</a>
     </h4>
 </div>
 </div>
-<trip-destination-add-edit model="tripDestinationAddEdit"></trip-destination-add-edit>
+
+<trip-destination-add-edit></trip-destination-add-edit>

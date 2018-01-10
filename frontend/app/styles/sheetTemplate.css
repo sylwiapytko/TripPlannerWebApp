@@ -1,4 +1,7 @@
 /* Remove the navbar's default margin-bottom and rounded borders */
+body {
+    position: relative;
+}
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -32,3 +35,31 @@ footer {
 
 .md-datepicker-calendar-pane{
     z-index: 1200}
+
+
+
+.main-center{
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background:#99ccff;
+    color: #FFF;
+    text-shadow: none;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+
+}
+
+.panel-heading {
+    cursor: pointer;
+}
+.panel-title a {
+    display: block;
+    padding: 10px 15px;
+    margin: -10px -15px;
+    vertical-align: middle;
+}
+.pac-container {
+    z-index: 10000 !important;
+}

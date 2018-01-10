@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap.datetimepicker'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -9,7 +9,8 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', function($scope, $cookies) {
+.controller('View1Ctrl', function($scope, $cookies, mdcDateTimeDialog) {
     $scope.mycookie=$cookies.get("access_token");
+
 
 });

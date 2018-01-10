@@ -10,32 +10,27 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
     })
     .config(['$mdDateLocaleProvider', function($mdDateLocaleProvider) { $mdDateLocaleProvider.formatDate = function(date) {
         if (moment(date).isValid()) {
-            return moment(date).format("DD.MM.YYYY");
+            return moment(date).format("YYYY-MM-DD");
         }
         return null;
     };
     }])
-    .controller('tripDestinationDetailsCtrl', function($scope, $http, $routeParams) {
+    .controller('tripDestinationDetailsCtrl', function($scope, $http, $routeParams, $rootScope) {
 
-        $scope.test=$routeParams.id;
-        var url = "http://localhost:8080/api/trip/getDestination/" + $routeParams.id;
-        $http.get(url).then(function(response) {
-            $scope.destination = response.data;
-            $scope.dateFrom =new Date($scope.destination.date_from);
-            $scope.dateTo =new Date($scope.destination.date_to);
+        $rootScope.$on('destinationAdded', function () {
+            getDestination();
         });
-        $scope.editDestination = function() {
-            var req = {
-                method: 'POST',
-                url: "http://localhost:8080/api/trip/addUpdateDestinations",
-                data: $scope.destination
-            }
 
-            $http(req).then(function(response) {
-                alert("updated")
+        $scope.editDestination = function () {
+            $rootScope.$broadcast('editDestination');
+        }
+        var getDestination = function () {
+            var url = "http://localhost:8080/api/trip/getDestination/" + $routeParams.id;
+            $http.get(url).then(function(response) {
+                $scope.destination = response.data;
+                $scope.dateFrom =new Date($scope.destination.date_from);
+                $scope.dateTo =new Date($scope.destination.date_to);
             });
         }
-
-        $scope.tripDestinationAddEdit = new tripDestinationAddEditDialogModel();
-
+        getDestination();
     });
