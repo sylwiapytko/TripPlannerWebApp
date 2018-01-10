@@ -2,14 +2,17 @@
     <div class="panel-group" >
             <div id="tripDestinationDetails">
                 <div class="panel-primary">
-                <div class="panel-heading">Destination details</div>
+                    <div class="panel-heading"><h1>Destination details</h1></div>
                 <div class="panel-body"><trip-destination-details></trip-destination-details></div>
-                <div class="panel-footer"><a href="" data-toggle="modal" data-target="#largeModal" ng-click="editDestination()">Edit destination</a></div>
+                <div class="panel-footer"><a href="" data-toggle="modal" data-target="#addEditDestinationModal" ng-click="editDestination()">Edit destination</a></div>
                 </div>
             </div>
             <div id="tripDestinationLodging">
-                <h1>Lodging</h1>
-                <trip-destination-lodging></trip-destination-lodging>
+                <div class="panel-primary">
+                    <div class="panel-heading"><h1>Lodging</h1></div>
+                    <div class="panel-body"><trip-destination-lodging></trip-destination-lodging></div>
+                    <div class="panel-footer"><a href="" data-toggle="modal" data-target="#largeModal" ng-click="editDestination()">Edit destination</a></div>
+                </div>
             </div>
             <div id="section3">
                 <h1>Section 3</h1>
