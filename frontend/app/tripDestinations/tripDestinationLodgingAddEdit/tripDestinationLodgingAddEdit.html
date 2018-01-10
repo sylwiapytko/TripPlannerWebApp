@@ -1,0 +1,32 @@
+<div class="modal fade" id="addEditLodgingModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >Edit destination</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Place: </label>
+                        <input type="text" ng-model="lodging.name">
+                    </div>
+                    <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                            <label>Price:</label>
+                            <input type="number" ng-model="lodging.price">
+                        </div>
+                        <div flex-gt-xs>
+                            <label>Notes:</label>
+                            <textarea  ng-model="lodging.notes"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Closes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveLodging()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

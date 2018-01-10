@@ -21,7 +21,8 @@ angular.module('myApp', [
     'myApp.userLogIn',
     'myApp.mapApi',
     'myApp.viewTemplate',
-    'myApp.tripScheduler'
+    'myApp.tripScheduler',
+    'myApp.tripDestinationLodgingAddEdit'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
