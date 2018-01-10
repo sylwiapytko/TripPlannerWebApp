@@ -24,6 +24,13 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
         $scope.editDestination = function () {
             $rootScope.$broadcast('editDestination');
         }
+        $scope.deleteDestination = function () {
+            var url = "http://localhost:8080/api/trip/deleteDestination/" + $routeParams.id;
+            $http.get(url).then(function(response) {
+                $rootScope.$broadcast('destinationAdded');
+                window.location.href = "#!/view1";
+            });
+        }
         var getDestination = function () {
             var url = "http://localhost:8080/api/trip/getDestination/" + $routeParams.id;
             $http.get(url).then(function(response) {
