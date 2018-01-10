@@ -30,7 +30,7 @@ public class DestinationController {
         return destinationService.getDestinations();
     }
 
-    @PostMapping(value = "/addUpdateDestinations", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/addUpdateDestination", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addUpdateDestinations(@RequestBody DestinationDto destinationDto) {
         destinationService.addUpdateDestinations(destinationDto);
     }

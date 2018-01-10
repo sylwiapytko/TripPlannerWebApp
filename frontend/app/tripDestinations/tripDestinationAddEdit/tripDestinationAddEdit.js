@@ -39,7 +39,7 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
         $scope.saveDestination = function() {
             var req = {
                 method: 'POST',
-                url: "http://localhost:8080/api/trip/addUpdateDestinations",
+                url: "http://localhost:8080/api/trip/addUpdateDestination",
                 // headers: {"access_token": $cookies.get("access_token")},
                 data: $scope.destination
             };
