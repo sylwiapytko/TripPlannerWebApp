@@ -20,8 +20,8 @@ public class LodgingController {
     }
 
     @RequestMapping(value = "/getDestinationLodging/{desination_id}", method = RequestMethod.GET)
-    public List<LodgingDto>  getDestinationLodgings(@PathVariable("desination_id") Long desination_id) {
-        return lodgingService.getDestinationLodgings(desination_id);
+    public LodgingDto getDestinationLodging(@PathVariable("desination_id") Long desination_id) {
+        return lodgingService.getDestinationLodging(desination_id);
     }
 
     @RequestMapping(value = "/getLodgings", method = RequestMethod.GET)

@@ -30,9 +30,9 @@ public class LodgingService {
         return lodgingAssembler.toDtoList(all);
     }
 
-    public List<LodgingDto> getDestinationLodgings(Long destination_id){
-        List<Lodging> all = lodgingRepository.findByDestination_id(destination_id);
-        return lodgingAssembler.toDtoList(all);
+    public LodgingDto getDestinationLodging(Long destination_id){
+        Lodging byId = lodgingRepository.findByDestination_id(destination_id);
+        return lodgingAssembler.toDto(byId);
     }
 
     public LodgingDto getLodging(Long id){
