@@ -29,13 +29,9 @@ public class LodgingController {
         return lodgingService.getLodgings();
     }
  
-    @RequestMapping(value = "/addLodgings", method = RequestMethod.POST)
-    public void addLodgings(@RequestBody List<LodgingDto> lodgingDtoList) {
-        lodgingService.addLodgings(lodgingDtoList);
-    }
 
-    @RequestMapping(value = "/updateLodging", method = RequestMethod.POST)
-    public void updateLodging(@RequestBody LodgingDto lodgingDto) {
-        lodgingService.updateLodging(lodgingDto);
+    @RequestMapping(value = "/addUpdateLodging", method = RequestMethod.POST)
+    public void addupdateLodging(@RequestBody LodgingDto lodgingDto) {
+        lodgingService.addupdateLodging(lodgingDto);
     }
 }
