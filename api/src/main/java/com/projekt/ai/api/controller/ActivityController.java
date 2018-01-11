@@ -20,7 +20,7 @@ public class ActivityController {
     }
 
     @RequestMapping(value = "/getDestinationActivity/{desination_id}", method = RequestMethod.GET)
-    public ActivityDto getDestinationActivity(@PathVariable("desination_id") Long desination_id) {
+    public List<ActivityDto> getDestinationActivity(@PathVariable("desination_id") Long desination_id) {
         return activityService.getDestinationActivity(desination_id);
     }
 

@@ -30,9 +30,9 @@ public class ActivityService {
         return activityAssembler.toDtoList(all);
     }
 
-    public ActivityDto getDestinationActivity(Long destination_id){
-        Activity byId = activityRepository.findByDestination_id(destination_id);
-        return activityAssembler.toDto(byId);
+    public List<ActivityDto> getDestinationActivity(Long destination_id){
+        List<Activity> all = activityRepository.findByDestination_id(destination_id);
+        return activityAssembler.toDtoList(all);
     }
 
     public ActivityDto getActivity(Long id){
