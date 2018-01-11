@@ -34,4 +34,9 @@ public class ActivityController {
     public void addupdateActivity(@RequestBody ActivityDto activityDto) {
         activityService.addupdateActivity(activityDto);
     }
+
+    @RequestMapping(value = "/deleteActivity/{id}", method = RequestMethod.GET)
+    public void deleteActivity(@PathVariable("id") Long id) {
+        activityService.deleteActivity(id);
+    }
 }

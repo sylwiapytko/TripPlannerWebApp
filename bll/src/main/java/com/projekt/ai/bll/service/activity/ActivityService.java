@@ -49,4 +49,8 @@ public class ActivityService {
 
     }
 
+    public void deleteActivity(Long Id) {
+        activityRepository.delete(Id);
+    }
+
 }
