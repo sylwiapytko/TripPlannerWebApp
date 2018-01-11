@@ -39,7 +39,7 @@ angular.module('myApp.tripScheduler', ['ngRoute', 'daypilot'])
             };
         $scope.monthConfig = {
             viewType: "Month",
-            startDate: new DayPilot.Date(),
+            startDate: new DayPilot.Date()
         };
 
             $scope.showDay = function() {

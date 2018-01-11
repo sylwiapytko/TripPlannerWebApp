@@ -19,7 +19,7 @@ public class EventController {
         return activityService.getEvent(id);
     }
 
-    @RequestMapping(value = "/getDestinationEvent/{desination_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getDestinationEvents/{desination_id}", method = RequestMethod.GET)
     public List<EventDto> getDestinationEvent(@PathVariable("desination_id") Long desination_id) {
         return activityService.getDestinationEvent(desination_id);
     }

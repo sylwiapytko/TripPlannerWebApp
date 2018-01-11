@@ -15,6 +15,16 @@
                         <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
                                        disabled=""></md-datepicker>
                     </div>
+
+                </div>
+                <a href="" data-toggle="modal" data-target="#addEditDestinationModal" ng-click="editDestination()">Edit destination</a>
+                <a href=""  ng-click="deleteDestination()">Delete destination</a>
+                </br></br></br></br>
+                <div id="tripDestinationLodging">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Lodging</div>
+                        <div class="panel-body"><trip-destination-lodging></trip-destination-lodging></div>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -23,5 +33,4 @@
         </div>
     </div>
 </form>
-<a href="" data-toggle="modal" data-target="#addEditDestinationModal" ng-click="editDestination()">Edit destination</a>
-<a href=""  ng-click="deleteDestination()">Delete destination</a>
+
