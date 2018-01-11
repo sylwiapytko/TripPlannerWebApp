@@ -43,13 +43,7 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
             startDate: new DayPilot.Date(),
 
             onEventMove: function(args) {
-                console.log(args.newStart.toString())
-                var params = {
-                    id: args.e.id(),
-                    newStart: args.newStart.toString(),
-                    newEnd: args.newEnd.toString()
-                };
-                saveSchedule(params.id)
+                onEventMove(args);
             }
         };
         $scope.monthConfig = {
@@ -60,14 +54,18 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
             }
         };
         var onEventMove = function (args) {
-
-            console.log("paramsid"+params.id)
-            saveSchedule(params.id);
-        }
-
-        var saveSchedule = function(eventId) {
+            var eventId= args.e.id();
             var updatedEvent = $scope.events.filter(function(item) { return item.id === eventId; });
             updatedEvent=updatedEvent[0];
+            updatedEvent.start=args.newStart.toString();
+            updatedEvent.end=args.newEnd.toString();
+            console.log(eventId);
+            console.log(updatedEvent.start);
+
+            saveSchedule(updatedEvent)
+        }
+
+        var saveSchedule = function(updatedEvent) {
             var req = {
                 method: 'POST',
                 url: "http://localhost:8080/api/trip/addUpdateEvent",
@@ -75,7 +73,7 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
                 data: updatedEvent
             };
             $http(req).then(function(data){
-                // $rootScope.$broadcast('lodgingUpdated');
+                $rootScope.$broadcast('eventUpdated');
             });
         }
         $rootScope.$on('eventUpdated', function () {
