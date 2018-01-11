@@ -36,7 +36,11 @@ angular.module('myApp.tripScheduler', ['ngRoute', 'daypilot'])
             $scope.dayConfig = {
                 viewType: "Day",
                 startDate: new DayPilot.Date(),
-            }
+            };
+        $scope.monthConfig = {
+            viewType: "Month",
+            startDate: new DayPilot.Date(),
+        };
 
             $scope.showDay = function() {
                 $scope.dayConfig.visible = true;
