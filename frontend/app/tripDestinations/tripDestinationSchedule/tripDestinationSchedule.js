@@ -58,16 +58,6 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
 
             onEventMove: function(args) {
                 onEventMove(args)
-            },
-            onEventClick: function(args) {
-                var modal = new DayPilot.Modal({
-                    onClosed: function(args) {
-                        if (args.result) {  // args.result is empty when modal is closed without submitting
-                            loadEvents();
-                        }
-                    }
-                });
-                //show dialog and ask for name and other info
             }
         };
         var onEventMove = function (args) {

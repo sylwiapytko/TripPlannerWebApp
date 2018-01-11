@@ -1,4 +1,4 @@
-package com.projekt.ai.bll.model.activity;
+package com.projekt.ai.bll.model.event;
 
 
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -17,7 +16,7 @@ import java.sql.Timestamp;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ActivityDto {
+public class EventDto {
     private Long id;
     private String text;
     private Timestamp start ;

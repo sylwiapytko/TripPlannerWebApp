@@ -1,4 +1,4 @@
-package com.projekt.ai.dal.domain.activity;
+package com.projekt.ai.dal.domain.event;
 
 import com.projekt.ai.dal.domain.destination.Destination;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -16,16 +15,16 @@ import java.sql.Timestamp;
  */
 
 @Entity
-@Table(name="TRV_ACTIVITY")
+@Table(name="TRV_EVENT")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Activity implements Serializable {
+public class Event implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TRV_ACTIVITY")
-    @SequenceGenerator(name = "SEQ_TRV_ACTIVITY", sequenceName = "SEQ_TRV_ACTIVITY")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TRV_EVENT")
+    @SequenceGenerator(name = "SEQ_TRV_EVENT", sequenceName = "SEQ_TRV_EVENT")
 
     @Column(name = "ID")
     private Long id;
