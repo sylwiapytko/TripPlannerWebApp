@@ -22,6 +22,11 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
         $scope.monthConfig = {startDate: $scope.dateConfigstart}
     };
 
+        var url = "http://localhost:8080/api/trip/getDestinationActivity/" + $routeParams.id;
+        $http.get(url).then(function(response) {
+            $scope.events = response.data;
+        });
+
         $scope.showMonth = function() {
             $scope.monthConfigVisible = true;
             $scope.weekConfig.visible = false;
@@ -35,12 +40,7 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
             startDate: new DayPilot.Date(),
 
             onEventMove: function(args) {
-                var params = {
-                    id: args.e.id(),
-                    newStart: args.newStart.toString(),
-                    newEnd: args.newEnd.toString()
-                }
-                //http.post
+                onEventMove(args)
             },
             onEventClick: function(args) {
                 var modal = new DayPilot.Modal({
@@ -57,12 +57,7 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
             startDate: new DayPilot.Date(),
 
             onEventMove: function(args) {
-                var params = {
-                    id: args.e.id(),
-                    newStart: args.newStart.toString(),
-                    newEnd: args.newEnd.toString()
-                }
-                //http.post
+                onEventMove(args)
             },
             onEventClick: function(args) {
                 var modal = new DayPilot.Modal({
@@ -75,4 +70,27 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
                 //show dialog and ask for name and other info
             }
         };
+        var onEventMove = function (args) {
+            var params = {
+                id: args.e.id(),
+                newStart: args.newStart.toString(),
+                newEnd: args.newEnd.toString()
+            }
+            console.log("paramsid"+params.id)
+            saveSchedule(params.id);
+        }
+
+        var saveSchedule = function(eventId) {
+            var updatedEvent = $scope.events.filter(function(item) { return item.id === eventId; });
+            updatedEvent=updatedEvent[0];
+            var req = {
+                method: 'POST',
+                url: "http://localhost:8080/api/trip/addUpdateActivity",
+                // headers: {"access_token": $cookies.get("access_token")},
+                data: updatedEvent
+            };
+            $http(req).then(function(data){
+                // $rootScope.$broadcast('lodgingUpdated');
+            });
+        }
     });
