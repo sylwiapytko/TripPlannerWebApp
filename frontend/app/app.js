@@ -24,7 +24,8 @@ angular.module('myApp', [
     'myApp.tripScheduler',
     'myApp.tripDestinationLodgingAddEdit',
     'myApp.tripDestinationSchedule',
-    'myApp.tripDestinationEvents'
+    'myApp.tripDestinationEvents',
+    'myApp.tripDestinationEventAddEdit'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
