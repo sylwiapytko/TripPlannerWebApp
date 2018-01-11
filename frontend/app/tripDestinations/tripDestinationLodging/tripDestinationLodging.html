@@ -1,26 +1,20 @@
-<form>
-    <div class="form-group">
-        <div class="row">
-                 <div layout-gt-xs="row">
-                    <div flex-gt-xs>
-                        <label>Place:</label>
-                        {{lodgings.name}}
-                    </div>
-                    <div flex-gt-xs>
-                        <label>Price:</label>
-                        {{lodgings.price}}
-                    </div>
-                 </div>
-            <div layout-gt-xs="row">
-                <div flex-gt-xs>
-                    <label>Notes:</label>
-                    {{lodgings.notes}}
-                </div>
+
+    <div >
+        <div layout-gt-xs="row">
+            <div flex-gt-xs>
+            <label>Place:</label>
+            {{lodgings.name}}
             </div>
+        <div flex-gt-xs>
+            <label>Price:</label>
+            {{lodgings.price}}
         </div>
+        <div flex-gt-xs>
+            <label>Notes:</label>
+            {{lodgings.notes}}
         </div>
     </div>
-</form>
-<a href="" data-toggle="modal" data-target="#addEditLodgingModal" ng-click="editLodging()">Edit lodging</a>
+    </div>
+<a href="" class="btn btn-info" data-toggle="modal" data-target="#addEditLodgingModal" ng-click="editLodging()">Edit lodging</a>
 
 <trip-destination-lodging-add-edit></trip-destination-lodging-add-edit>
