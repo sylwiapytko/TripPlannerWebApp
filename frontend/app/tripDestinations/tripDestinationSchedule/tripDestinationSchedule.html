@@ -1,8 +1,10 @@
-<button ng-click="showMonth()">Month</button>
-<button ng-click="showWeek()">Week</button>
-<a href="javascript:dp.startDate = dp.startDate.addDays(-7); dp.update();">Previous Week</a> |
-<a href="javascript:dp.startDate = dp.startDate.addDays(7); dp.update();">Next Week</a> -not working yet-
-<daypilot-month id="month" daypilot-config="monthConfig" daypilot-events="events" ></daypilot-month>
+<button ng-click="showMonth()" ng-hide="monthConfigVisible">Show Month</button>
+<button ng-click="showWeek()" ng-show="monthConfigVisible">Show Week</button>
+<button ng-click="previousWeek()" ng-hide="monthConfigVisible">Previous Week</button>
+<button ng-click="nextWeek()" ng-hide="monthConfigVisible">Next Week</button>
+<button ng-click="previousMonth()" ng-show="monthConfigVisible">Previous Month</button>
+<button ng-click="nextMonth()" ng-show="monthConfigVisible">Next Month</button>
+<daypilot-month id="month" daypilot-config="monthConfig" daypilot-events="events" ng-show="monthConfigVisible" ></daypilot-month>
 <daypilot-calendar id="week" daypilot-config="weekConfig" daypilot-events="events"></daypilot-calendar>
 <div ng-repeat="event in events">
     {{event.text}}
@@ -10,3 +12,5 @@
     {{event.end}}
     </br> {{event}}
 </div>
+{{weekConfig.startDate}}
+{{monthConfig.startDate}}
