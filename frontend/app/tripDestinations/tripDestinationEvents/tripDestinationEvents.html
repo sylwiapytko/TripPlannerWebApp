@@ -33,7 +33,6 @@
     </div>
 </div>
 <div class="row">
-{{eventShow}}
 <div ng-hide="eventShow">
     <div class="panel panel-primary">
         <div class="panel-heading">Edit event {{eventEdit.text}}</div>
@@ -79,8 +78,8 @@
                 </div>
             </form>
         </div>
-        <div class="panel-footer"><a href="" ng-click="saveEditedEvent()">Save event</a>
-            <button type="button" ng-click="cancelEditedEvent()">Close</button>
+        <div class="panel-footer"><a href="" class="btn btn-info" ng-click="saveEditedEvent()">Save event</a>
+            <button type="button" class="btn btn-info" ng-click="cancelEditedEvent()">Close</button>
     </div>
 </div>
 </div>

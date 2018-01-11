@@ -1,16 +1,9 @@
-<button ng-click="showMonth()" ng-hide="monthConfigVisible">Show Month</button>
-<button ng-click="showWeek()" ng-show="monthConfigVisible">Show Week</button>
-<button ng-click="previousWeek()" ng-hide="monthConfigVisible">Previous Week</button>
-<button ng-click="nextWeek()" ng-hide="monthConfigVisible">Next Week</button>
-<button ng-click="previousMonth()" ng-show="monthConfigVisible">Previous Month</button>
-<button ng-click="nextMonth()" ng-show="monthConfigVisible">Next Month</button>
+<button class="btn btn-info" ng-click="changeCalendar()" ng-hide="monthConfigVisible">Show Month</button>
+<button class="btn btn-info" ng-click="changeCalendar()" ng-show="monthConfigVisible">Show Week</button>
+<button class="btn btn-info" ng-click="moveCalendar(-7)" ng-hide="monthConfigVisible">Previous Week</button>
+<button class="btn btn-info" ng-click="moveCalendar(7)" ng-hide="monthConfigVisible">Next Week</button>
+<button class="btn btn-info" ng-click="moveCalendar(-30)" ng-show="monthConfigVisible">Previous Month</button>
+<button class="btn btn-info" ng-click="moveCalendar(30)" ng-show="monthConfigVisible">Next Month</button>
 <daypilot-month id="month" daypilot-config="monthConfig" daypilot-events="events" ng-show="monthConfigVisible" ></daypilot-month>
-<daypilot-calendar id="week" daypilot-config="weekConfig" daypilot-events="events"></daypilot-calendar>
-<div ng-repeat="event in events">
-    {{event.text}}
-    {{event.start}}
-    {{event.end}}
-    </br> {{event}}
-</div>
-{{weekConfig.startDate}}
-{{monthConfig.startDate}}
+<daypilot-calendar id="week" daypilot-config="weekConfig" daypilot-events="events" ng-hide="monthConfigVisible"></daypilot-calendar>
+

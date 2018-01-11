@@ -14,10 +14,11 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
     $http.get(url).then(function(response) {
         $scope.destination = response.data;
         $scope.dateFrom =new Date($scope.destination.date_from);
-        configStartDate();
+        configStartDate($scope.dateFrom);
     });
-    var configStartDate = function () {
-        $scope.dateConfigstart= $scope.dateFrom.format("yyyy-mm-dd");
+    
+    var configStartDate = function (startDate) {
+        $scope.dateConfigstart= startDate.format("yyyy-mm-dd");
         $scope.weekConfig = {startDate: $scope.dateConfigstart};
         $scope.monthConfig = {startDate: $scope.dateConfigstart}
     };
@@ -28,16 +29,7 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
                 $scope.events = response.data;
             });
         };
-        getDestinationEvents()
 
-        $scope.showMonth = function() {
-            $scope.monthConfigVisible = true;
-            $scope.weekConfig.visible = false;
-        };
-        $scope.showWeek = function() {
-            $scope.monthConfigVisible = false;
-            $scope.weekConfig.visible = true;
-        };
         $scope.weekConfig = {
             viewType: "Week",
             startDate: new DayPilot.Date(),
@@ -79,4 +71,16 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
         $rootScope.$on('eventUpdated', function () {
             getDestinationEvents();
         });
+
+        $scope.changeCalendar = function() {
+            $scope.monthConfigVisible = !($scope.monthConfigVisible);
+        };
+
+        $scope.moveCalendar = function (days) {
+            var newstartDate = new Date($scope.weekConfig.startDate);
+            newstartDate=new Date(newstartDate.setDate(newstartDate.getDate() + days));
+            configStartDate(newstartDate);
+        };
+
+        getDestinationEvents();
     });
