@@ -16,7 +16,7 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
         $scope.dateFrom =new Date($scope.destination.date_from);
         configStartDate($scope.dateFrom);
     });
-    
+
     var configStartDate = function (startDate) {
         $scope.dateConfigstart= startDate.format("yyyy-mm-dd");
         $scope.weekConfig = {startDate: $scope.dateConfigstart};
@@ -33,6 +33,9 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
         $scope.weekConfig = {
             viewType: "Week",
             startDate: new DayPilot.Date(),
+            businessBeginsHour: 0,
+            businessEndsHour: 24,
+            heightSpec: "Full",
 
             onEventMove: function(args) {
                 onEventMove(args);
