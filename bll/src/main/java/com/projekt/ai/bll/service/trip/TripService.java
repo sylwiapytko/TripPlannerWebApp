@@ -33,16 +33,9 @@ public class TripService {
         return tripAssembler.toDto(byId);
     }
 
-    public void addTrips(List<TripDto> tripDtoList) {
-
-        for (TripDto tripDto : tripDtoList) {
+    public void addUpdateTrip(TripDto tripDto) {
             Trip trip = tripAssembler.fromDto(tripDto);
             Trip savedTrip = tripRepository.save(trip);
+    }
 
-        }
-    }
-    public void updateTrip(TripDto tripDto) {
-            Trip trip = tripAssembler.updateDto(tripDto, tripDto.getId());
-            Trip savedTrip = tripRepository.save(trip);
-    }
 }
