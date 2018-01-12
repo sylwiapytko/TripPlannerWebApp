@@ -38,4 +38,8 @@ public class TripService {
             Trip savedTrip = tripRepository.save(trip);
     }
 
+    public void deleteTrip(Long tripId) {
+        tripRepository.delete(tripId);
+    }
+
 }

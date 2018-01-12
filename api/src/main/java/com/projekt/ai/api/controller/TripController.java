@@ -28,4 +28,9 @@ public class TripController {
     public void updateTrip(@RequestBody TripDto tripDto) {
         tripService.addUpdateTrip(tripDto);
     }
+
+    @RequestMapping(value = "/deleteTrip/{trip_id}", method = RequestMethod.GET)
+    public void deleteTrip(@PathVariable("trip_id") Long tripId) {
+        tripService.deleteTrip(tripId);
+    }
 }
