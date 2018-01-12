@@ -1,6 +1,14 @@
 /* Remove the navbar's default margin-bottom and rounded borders */
-body {
-    position: relative;
+
+body, html {
+    height: 100%;
+    background-image:  url("http://freedesignfile.com/upload/2014/03/Creative-travel-elements-seamless-pattern-vector1.jpg") ;
+
+}
+
+.bg {
+    height: 100%;
+    background-size: cover;
 }
 .navbar {
     margin-bottom: 0;
