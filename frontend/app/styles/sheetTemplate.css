@@ -10,20 +10,35 @@ body, html {
     height: 100%;
     background-size: cover;
 }
-.navbar {
-    margin-bottom: 0;
-    border-radius: 0;
+.sidenav {
+    /*padding-top: 20px;*/
+    height: auto;
+    margin-top: 100px;
+    margin-left: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background:#99ccff;
+    color: #FFF;
+    text-shadow: none;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 }
-
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+        background:#99ccff;
+        color: #FFF;
+        padding-top: 30px;
+        margin-top: 100px;
+    }
+    .row.content {height:auto;}
+}
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {height: 450px}
 
-/* Set gray background color and 100% height */
-.sidenav {
-    padding-top: 20px;
-    background-color: #f1f1f1;
-    height: 100%;
-}
 
 /* Set black background color, white text and some padding */
 footer {
@@ -47,7 +62,7 @@ footer {
 
 
 .main-center{
-    margin-top: 50px;
+    margin-top: 100px;
     padding-top: 30px;
     padding-bottom: 30px;
     background:#99ccff;
@@ -58,7 +73,9 @@ footer {
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 
 }
-
+.panel{
+    margin-top: 10px;
+}
 .panel-heading {
     cursor: pointer;
 }

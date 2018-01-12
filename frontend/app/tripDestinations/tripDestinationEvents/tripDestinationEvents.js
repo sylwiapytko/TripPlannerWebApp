@@ -6,7 +6,7 @@ angular.module('myApp.tripDestinationEvents', ['ngRoute'])
             controller: 'tripDestinationEventsCtrl'
         };
     })
-    .controller('tripDestinationEventsCtrl', function ($scope, $http, $routeParams, $rootScope) {
+    .controller('tripDestinationEventsCtrl', function ($scope, $http, $routeParams, $rootScope, $cookies) {
 
         var getDestinationEvents = function () {
             var url = "http://localhost:8080/api/trip/getDestinationEvents/" + $routeParams.id;
@@ -27,7 +27,7 @@ angular.module('myApp.tripDestinationEvents', ['ngRoute'])
             var req = {
                 method: 'POST',
                 url: "http://localhost:8080/api/trip/addUpdateEvent",
-                // headers: {"access_token": $cookies.get("access_token")},
+                headers: {"access_token": $cookies.get("access_token")},
                 data: $scope.eventEdit
             };
             $http(req).then(function (data) {

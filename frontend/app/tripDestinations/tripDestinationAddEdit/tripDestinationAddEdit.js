@@ -15,7 +15,7 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
             controller: 'tripDestinationAddEditCtrl'
         });
     }])
-    .controller('tripDestinationAddEditCtrl', function($scope, $http, $rootScope, $routeParams) {
+    .controller('tripDestinationAddEditCtrl', function($scope, $http, $rootScope, $routeParams, $cookies) {
 
 
         $rootScope.$on('editDestination', function () {
@@ -40,7 +40,7 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
             var req = {
                 method: 'POST',
                 url: "http://localhost:8080/api/trip/addUpdateDestination",
-                // headers: {"access_token": $cookies.get("access_token")},
+                headers: {"access_token": $cookies.get("access_token")},
                 data: $scope.destination
             };
             $http(req).then(function(data){
