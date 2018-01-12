@@ -21,5 +21,6 @@ public class TripDto {
     private String destination;
     private Date date_from;
     private Date date_to;
+    private Long user_id;
 
 }

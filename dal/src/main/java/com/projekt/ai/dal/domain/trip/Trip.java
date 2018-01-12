@@ -1,5 +1,6 @@
 package com.projekt.ai.dal.domain.trip;
 
+import com.projekt.ai.dal.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,6 +29,8 @@ public class Trip implements Serializable {
     @Column(name = "ID")
     private Long id;
 
+    @ManyToOne
+    private User user;
 
     @Column(name = "NAME")
     private String name;

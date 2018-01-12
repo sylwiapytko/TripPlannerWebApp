@@ -1,8 +1,11 @@
 package com.projekt.ai.bll.service.trip;
 
 import com.projekt.ai.bll.model.trip.TripDto;
+import com.projekt.ai.dal.domain.lodging.Lodging;
 import com.projekt.ai.dal.domain.trip.Trip;
 import com.projekt.ai.dal.domain.trip.TripRepository;
+import com.projekt.ai.dal.domain.user.User;
+import com.projekt.ai.dal.domain.user.UserRepository;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,9 @@ public class TripService {
     @Autowired
     private TripAssembler tripAssembler;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     public List<TripDto> getTrips(){
         List<Trip> all = tripRepository.findAll();
@@ -34,8 +40,11 @@ public class TripService {
     }
 
     public void addUpdateTrip(TripDto tripDto) {
-            Trip trip = tripAssembler.fromDto(tripDto);
-            Trip savedTrip = tripRepository.save(trip);
+
+        User user = userRepository.findById(tripDto.getUser_id());
+        Trip trip = tripAssembler.fromDto(tripDto);
+        trip.setUser(user);
+        Trip savedTrip = tripRepository.save(trip);
     }
 
     public void deleteTrip(Long tripId) {
