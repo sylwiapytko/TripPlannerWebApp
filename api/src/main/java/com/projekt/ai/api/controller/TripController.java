@@ -19,6 +19,11 @@ public class TripController {
         return tripService.getTrip(id);
     }
 
+    @RequestMapping(value = "/getUserTrips/{user_id}", method = RequestMethod.GET)
+    public List<TripDto> getUserTrips(@PathVariable("user_id") Long user_id) {
+        return tripService.getUserTrips(user_id);
+    }
+
     @RequestMapping(value = "/getTrips", method = RequestMethod.GET)
     public List<TripDto> getTrips() {
         return tripService.getTrips();

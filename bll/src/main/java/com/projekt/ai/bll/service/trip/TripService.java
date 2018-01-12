@@ -34,6 +34,11 @@ public class TripService {
         return tripAssembler.toDtoList(all);
     }
 
+    public List<TripDto> getUserTrips(Long user_id) {
+        List<Trip> all  = tripRepository.findByUser_id(user_id);
+        return tripAssembler.toDtoList(all);
+    }
+
     public TripDto getTrip(Long id){
         Trip byId = tripRepository.findById(id);
         return tripAssembler.toDto(byId);
