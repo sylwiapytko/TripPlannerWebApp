@@ -7,7 +7,6 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.tripAdd',
     'myApp.viewMainMenu',
-    'myApp.viewUserMenu',
     'myApp.tripDestinationsSidebar',
     'myApp.tripDestinationSections',
     'myApp.tripDestinationDetails',
