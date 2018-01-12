@@ -12,6 +12,9 @@ angular.module('myApp.tripDestinationsSidebar', ['ngCookies', 'ui.bootstrap.date
     .controller('tripDestinationsSidebarCtrl',
         function ($scope, $http, $cookies, $rootScope) {
 
+            $rootScope.$on('tripOpened', function () {
+                getDestinations();
+            });
             $rootScope.$on('destinationAdded', function () {
                 getDestinations();
             });
@@ -24,7 +27,7 @@ angular.module('myApp.tripDestinationsSidebar', ['ngCookies', 'ui.bootstrap.date
             }
 
             var getDestinations = function () {
-                var url = "http://localhost:8080/api/trip/getTripDestinations/" + 1; //trip_id
+                var url = "http://localhost:8080/api/trip/getTripDestinations/" + $cookies.get("tripId");
                 $http.get(url).then(function (response) {
                     $scope.destinations = response.data;
                 });

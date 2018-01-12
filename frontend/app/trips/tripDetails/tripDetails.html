@@ -27,6 +27,13 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-6">
+            <button class="btn btn-info" ng-click="moveCalendar(-30)" ng-show="monthConfigVisible">Previous Month</button>
+            <button class="btn btn-info" ng-click="moveCalendar(30)" ng-show="monthConfigVisible">Next Month</button>
+            <daypilot-month id="month" daypilot-config="monthConfig" daypilot-events="events" ng-show="monthConfigVisible" ></daypilot-month>
         </div>
     </div>
 </div>
