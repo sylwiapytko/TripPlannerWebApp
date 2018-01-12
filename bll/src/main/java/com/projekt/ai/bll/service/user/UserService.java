@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
 import java.util.HashMap;
@@ -29,7 +30,7 @@ import java.util.Map;
  */
 
 @Service
-public class LoginService {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -73,7 +74,7 @@ public class LoginService {
         userLoginOut.setToken(generateToken(user));
         userLoginOut.setUserId(user.getId());
         userLoginOut.setFirstname(user.getFirstname());
-        userLoginOut.setLastname(user.getLastname());
+        userLoginOut.setRole(user.getRole());
 
         return userLoginOut;
     }
@@ -93,5 +94,25 @@ public class LoginService {
                 .signWith(signatureAlgorithm, signingKey);
 
         return builder.compact();
+    }
+
+    public void checkEmail(String email, HttpServletResponse response) {
+        if(!checkEmail(email))
+            response.setStatus(HttpServletResponse.SC_CONFLICT);
+    }
+
+    public void checkUsername(String username, HttpServletResponse response) {
+        if(!checkUsername(username))
+            response.setStatus(HttpServletResponse.SC_CONFLICT);
+    }
+
+    public boolean checkEmail(String email) {
+        User user = userRepository.getUserByEmail(email);
+        return user == null;
+    }
+
+    public boolean checkUsername(String username) {
+        User user = userRepository.getUserByUsername(username);
+        return user == null;
     }
 }
