@@ -50,7 +50,6 @@ public class UserService {
         user.setFirstname(userRegisterIn.getFirstname());
         user.setLastname(userRegisterIn.getLastname());
         user.setEmail(userRegisterIn.getEmail());
-        user.setRole(Role.USER);
 
         User savedUser = userRepository.save(user);
 
@@ -74,7 +73,6 @@ public class UserService {
         userLoginOut.setToken(generateToken(user));
         userLoginOut.setUserId(user.getId());
         userLoginOut.setFirstname(user.getFirstname());
-        userLoginOut.setRole(user.getRole());
 
         return userLoginOut;
     }
@@ -87,7 +85,6 @@ public class UserService {
 
         Map<String, Object> map = new HashMap<>();
         map.put("username", user.getUsername());
-        map.put("role", user.getRole());
 
         JwtBuilder builder = Jwts.builder()
                 .setClaims(map)

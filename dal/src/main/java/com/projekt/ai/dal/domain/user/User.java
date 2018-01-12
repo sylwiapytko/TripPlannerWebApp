@@ -11,13 +11,13 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name="USERS")
+@Table(name="TRV_USER")
 @Data
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USERS")
-    @SequenceGenerator(name = "SEQ_USERS", sequenceName = "SEQ_USERS")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TRV_USER")
+    @SequenceGenerator(name = "SEQ_TRV_USER", sequenceName = "SEQ_TRV_USER")
     @Column(name = "ID")
     private Long id;
 
@@ -36,7 +36,4 @@ public class User implements Serializable {
     @Column(name = "EMAIL")
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ROLE")
-    private Role role;
 }

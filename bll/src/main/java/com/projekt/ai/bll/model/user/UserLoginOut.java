@@ -12,5 +12,4 @@ public class UserLoginOut {
     private String token;
     private Long userId;
     private String firstname;
-    private Role role;
 }
