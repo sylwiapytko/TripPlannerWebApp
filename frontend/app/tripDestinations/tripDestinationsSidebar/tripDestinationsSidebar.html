@@ -1,5 +1,13 @@
-<h4>Your trip destinations:</h4>
 <div class="panel-group" id="accordion" >
+    <div class="panel panel-primary" >
+        <div class="panel-heading">
+            <h4 class="panel-title" >
+                <a href="#!/tripDetails/{{trip.id}}">Trip:
+                    {{trip.name}}</a>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <label>Trip destinations:</label>
 <div ng-repeat="destination in destinations" class="panel panel-default" >
     <div class="panel-heading">
         <h4 class="panel-title" >
@@ -16,11 +24,10 @@
         </div>
     </div>
 </div>
-<div class="panel panel-default">
-    <h4 class="panel-body" >
-        <a href="" data-toggle="modal" data-target="#addEditDestinationModal" ng-click="addDestination()">Add destination</a>
-    </h4>
 </div>
-</div>
+        <h4 class="panel-footer" >
+            <a href="" data-toggle="modal" data-target="#addEditDestinationModal" ng-click="addDestination()">Add destination</a>
+        </h4>
+    </div></div>
 
 <trip-destination-add-edit></trip-destination-add-edit>
