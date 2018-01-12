@@ -19,6 +19,7 @@ angular.module('myApp', [
     'ui.bootstrap.datetimepicker',
     'myApp.datetimePicker',
     'myApp.userLogIn',
+    'myApp.userRegistration',
     'myApp.mapApi',
     'myApp.viewTemplate',
     'myApp.tripScheduler',

@@ -10,14 +10,17 @@ angular.module('myApp.userRegistration', ['ngRoute', 'ngResource','ngCookies'
   });
 }])
 
-.controller('UserRegistrationCtrl', 
+.controller('UserRegistrationCtrl', function($scope, $http, userRegistrationService) {
 
-function($scope, $http, $httpParamSerializer, $resource, $cookies, $rootScope) {
-
- $scope.rexUsername ="^[a-zA-Z][a-zA-Z0-9]{5,20}$";
- $scope.rexName ="^[A-ZŁŻ][a-ząćęłńóśźżĄĘŁŃÓŹŻ]{2,20}$";
- $scope.rexPassword = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{5,20}$"
- $scope.rexEmail = "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+ $scope.rexUsername ="^(?=.*[a-z])[\\wąćęłńóśźżĄĘŁŃÓŚŹŻ\\d]{3,20}$";
+ $scope.rexPassword = "^(?=.*[A-Z])(?=.*[0-9]).{6,20}$";
+    $scope.rexFirstName ="^[A-ZŁŻ][a-ząćęłńóśźżĄĘŁŃÓŚŹŻ]{1,20}$";
+    $scope.rexLastName ="^[A-ZĆŁŚŻŹ][a-ząćęłńóśźżĄĘŁŃÓŚŹŻ]{1,20}((-|\\\\s)?[A-ZĆŁŚŻŹ][a-ząćęłńóśźżĄĘŁŃÓŚŹŻ]{1,20})?$";
+    $scope.rexEmail ="^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+    $scope.rexCity ="^[A-ZŁŻ]([a-ząćęłńóśźżĄĘŁŃÓŚŹŻA-ZŁŻ\\s]){1,30}$";
+    $scope.rexStreet ="^[A-ZŁŻ]([a-ząćęłńóśźżĄĘŁŃÓŚŹŻA-ZŁŻ\\s]){1,30}$";
+    $scope.rexHouseNumber ="^[\\d]{1,3}(/[\\d]{1,3})?$";
+    $scope.rexPostNumber ="^[\\d]{2}-[\\d]{3}$";
 
 $scope.comparePass = function(){
 	if ( $scope.userReg.password == $scope.userReg.passwordRepeat ) { $scope.badPasswords=false; }
@@ -32,23 +35,49 @@ $scope.comparePass = function(){
         lastname: "Sowa",
         city: "Olsztn",
         street: "Mila",
-        houseNumber: "22a/34",
+        houseNumber: "22/34",
         postNumber: "22-111"
-    }
+    };
     $scope.userReg.passwordRepeat="Anna22";
 
-    $scope.registerIn = function() {
-        // $scope.userReg.password = btoa($scope.userReg.password);
-        var req = {
-            method: 'POST',
-            url: "http://localhost:8080/register",
-            data: $scope.userReg
+    // $scope.userReg={
+    //     username: "",
+    //     password: "",
+    //     email: "",
+    //     firstname: "",
+    //     lastname: "",
+    //     city: "",
+    //     street: "",
+    //     houseNumber: "",
+    //     postNumber: ""
+    // };
+    // $scope.userReg.passwordRepeat="";
 
-        }
-        $http(req).then(function(data){
-            alert("rejestrujesz sie")
-            window.location.href = "#!/login";
+  var register = function () {
+      var req = {
+          method: 'POST',
+          url: "http://localhost:8080/register",
+          data: $scope.userReg
+
+      };
+      $http(req).then(function (data) {
+          window.location.href = "#!/login";
+      });
+  };
+
+    $scope.registerIn = function() {
+        userRegistrationService.checkUsername($scope.userReg.username).then(function (response) {
+            $scope.usernameBusy = response;
+            userRegistrationService.checkEmail($scope.userReg.email).then(function (response) {
+                $scope.emailBusy = response;
+
+                if(!$scope.usernameBusy && !$scope.emailBusy) {
+register();
+                }
+            });
         });
+
     }
+
 
 });

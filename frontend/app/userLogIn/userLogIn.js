@@ -22,8 +22,8 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
    }
 
     $scope.data = {
-        username: "admin",
-        password: "admin"
+        username: "",
+        password: ""
     };
 
    $scope.login = function() {
@@ -37,11 +37,15 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
              $cookies.put("access_token", data.data.token);
              $cookies.put("userId", data.data.userId);
              $cookies.put("firstName", data.data.firstname);
+             $cookies.put("userRole", data.data.role);
              $scope.mycookie=$cookies.get("access_token");
              $rootScope.$broadcast('userLoggedIn');
              window.location.href = "#!/bookList";
 
-        });   
+        }).catch(function(response) {
+            alert("Wrong login or password")
+            console.error('Gists error', response.status, response.data);
+        });
    }
 
 
