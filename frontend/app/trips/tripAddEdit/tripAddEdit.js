@@ -1,33 +1,33 @@
 'use strict';
 
-angular.module('myApp.tripAddUpdate', ['ngRoute'])
+angular.module('myApp.tripAddEdit', ['ngRoute'])
 
-    .directive('tripAddUpdate', function() {
+    .directive('tripAddEdit', function() {
         return {
-            templateUrl: 'tripDestinations/tripAddUpdate/tripAddUpdate.html',
-            controller: 'tripAddUpdateCtrl'
+            templateUrl: 'trips/tripAddEdit/tripAddEdit.html',
+            controller: 'tripAddEditCtrl'
         };
     })
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/tripAddUpdate/:id', {
-            templateUrl: 'tripDestinations/tripAddUpdate/tripAddUpdate.html',
-            controller: 'tripAddUpdateCtrl'
+        $routeProvider.when('/tripAddEdit/:id', {
+            templateUrl: 'tripTrips/tripAddEdit/tripAddEdit.html',
+            controller: 'tripAddEditCtrl'
         });
     }])
-    .controller('tripAddUpdateCtrl', function($scope, $http, $rootScope, $routeParams, $cookies) {
+    .controller('tripAddEditCtrl', function($scope, $http, $rootScope, $routeParams, $cookies) {
 
 
-        $rootScope.$on('editDestination', function () {
-            var url = "http://localhost:8080/api/trip/getDestination/" + $routeParams.id;
+        $rootScope.$on('editTrip', function () {
+            var url = "http://localhost:8080/api/trip/getTrip/" + $routeParams.id;
             $http.get(url).then(function(response) {
-                $scope.destination = response.data;
-                $scope.destination.date_from =new Date($scope.destination.date_from);
-                $scope.destination.date_to =new Date($scope.destination.date_to);
+                $scope.trip = response.data;
+                $scope.trip.date_from =new Date($scope.trip.date_from);
+                $scope.trip.date_to =new Date($scope.trip.date_to);
             });
         });
-        $rootScope.$on('addDestination', function () {
-            $scope.destination={
+        $rootScope.$on('addTrip', function () {
+            $scope.trip={
                 "id": 0,
                 "name": "",
                 "date_from": "",
@@ -36,15 +36,15 @@ angular.module('myApp.tripAddUpdate', ['ngRoute'])
             }
         });
 
-        $scope.saveDestination = function() {
+        $scope.saveTrip = function() {
             var req = {
                 method: 'POST',
-                url: "http://localhost:8080/api/trip/addUpdateDestination",
+                url: "http://localhost:8080/api/trip/addUpdateTrip",
                 headers: {"access_token": $cookies.get("access_token")},
-                data: $scope.destination
+                data: $scope.trip
             };
             $http(req).then(function(data){
-                $rootScope.$broadcast('destinationAdded');
+                $rootScope.$broadcast('tripAdded');
             });
         }
     });

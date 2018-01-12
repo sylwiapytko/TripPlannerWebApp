@@ -4,11 +4,12 @@
             <h1>Welcome to TripPlaner!</h1>
             <h3> Start a Jurney!</h3>
             </br></br></br>
-            <button class="btn btn-primary">Start planning a new trip</button>
+            <a href="" class="btn btn-primary" data-toggle="modal" data-target="#addEditTrip" ng-click="addDestination()">Start planning a new trip</a>
+
             </br>
             <div ng-repeat="trip in trips">
                 <div class="list-group">
-                    <a href="#" class="list-group-item" data-toggle="modal" data-target="#addEditTrip">{{trip.name}} {{trip.date_from}}-{{trip.date_to}}</a>
+                    <a href="#" class="list-group-item" >{{trip.name}} {{trip.date_from}}-{{trip.date_to}}</a>
                 </div>
             </div>
         </div>
@@ -19,3 +20,4 @@
     </div>
 
 </div>
+<trip-add-edit></trip-add-edit>

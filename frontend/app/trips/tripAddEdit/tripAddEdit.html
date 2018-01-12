@@ -3,26 +3,26 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" >Add destination</h4>
+                <h4 class="modal-title" >Add trip</h4>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label>Name of destination: </label>
+                        <label>Name of trip: </label>
                         <input places-auto-complete size=80
-                               ng-model="destination.name"
+                               ng-model="trip.name"
                                types="['(cities)', region]"
                                on-place-changed="placeChanged()" /> <br/>
                     </div>
                     <div layout-gt-xs="row">
                         <div flex-gt-xs>
                             <label>Date from:</label>
-                            <md-datepicker ng-model="destination.date_from" name="dateFrom"
+                            <md-datepicker ng-model="trip.date_from" name="dateFrom"
                                            md-placeholder="Enter date"></md-datepicker>
                         </div>
                         <div flex-gt-xs>
                             <label>Date to :</label>
-                            <md-datepicker ng-model="destination.date_to" md-placeholder="Enter date"
+                            <md-datepicker ng-model="trip.date_to" md-placeholder="Enter date"
                                            md-min-date="ctrl.dateFrom"></md-datepicker>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveDestination()">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveTrip()">Save changes</button>
             </div>
         </div>
     </div>

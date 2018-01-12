@@ -9,12 +9,17 @@ angular.module('myApp.tripsList', ['ngRoute'])
         });
     }])
 
-    .controller('tripsListCtrl', function($scope, $http) {
+    .controller('tripsListCtrl', function($scope, $http, $rootScope) {
+        $rootScope.$on('tripAdded', function () {
+            getTrips();
+        });
+
         var getTrips = function () {
             var url = "http://localhost:8080/api/trip/getTrips" //trip_id
             $http.get(url).then(function (response) {
                 $scope.trips = response.data;
             });
-        }
+        };
+
         getTrips();
     });
