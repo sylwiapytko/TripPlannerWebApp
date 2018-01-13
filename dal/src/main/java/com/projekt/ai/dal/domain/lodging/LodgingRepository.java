@@ -15,5 +15,5 @@ public interface LodgingRepository extends JpaRepository<Lodging, Long> {
     Lodging findById(Long id);
     List<Lodging> findAll();
 
-    List<Lodging> findByDestination_id(Long destination_id);
+    Lodging findByDestination_id(Long destination_id);
 }

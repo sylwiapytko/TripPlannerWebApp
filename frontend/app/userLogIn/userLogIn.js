@@ -8,26 +8,22 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
     templateUrl: 'userLogIn/userLogIn.html',
     controller: 'UserLogInCtrl'
   });
-  // $httpProvider.defaults.useXDomain = true;
- // $httpProvider.defaults.withCredentials = true;
 }])
+    .directive('userLogIn', function() {
+        return {
+            templateUrl: 'userLogIn/userLogIn.html',
+            controller: 'UserLogInCtrl'
+        };
+    })
 
-.controller('UserLogInCtrl', function($scope, $http, $httpParamSerializer, $resource, $cookies, $rootScope) {
+.controller('UserLogInCtrl', function($scope, $http, $httpParamSerializer, $resource, $cookies, $rootScope, $mdDialog) {
   	
-     $scope.mycookie=$cookies.get("access_token");
-     
-  $scope.klik = function() {
-   	 $cookies.remove("access_token");
-   	 $scope.mycookie=$cookies.get("access_token");
-   }
-
     $scope.data = {
-        username: "admin",
-        password: "admin"
+        username: "",
+        password: ""
     };
 
    $scope.login = function() {
-       // $scope.data.password = btoa($scope.data.password);
         var req = {
             method: 'POST',
             url: "http://localhost:8080/login",
@@ -41,7 +37,16 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
              $rootScope.$broadcast('userLoggedIn');
              window.location.href = "#!/bookList";
 
-        });   
+        }).catch(function(response) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .title('Upps')
+                    .textContent('Wrong Login or Password')
+                    .ok('Got it!')
+            );
+        });
    }
 
 

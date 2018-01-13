@@ -5,12 +5,8 @@ angular.module('myApp', [
   'ngRoute', 'ngMaterial', 'ngMap', 'ngMaterialDatePicker', 'daypilot',
   'myApp.view1',
   'myApp.view2',
-  'myApp.version',
-  'myApp.tripAdd', 
-  'myApp.tripDetails',
-    'myApp.tripAttractions',
+  'myApp.tripAdd',
     'myApp.viewMainMenu',
-    'myApp.viewUserMenu',
     'myApp.tripDestinationsSidebar',
     'myApp.tripDestinationSections',
     'myApp.tripDestinationDetails',
@@ -19,12 +15,19 @@ angular.module('myApp', [
     'ui.bootstrap.datetimepicker',
     'myApp.datetimePicker',
     'myApp.userLogIn',
+    'myApp.userRegistration',
     'myApp.mapApi',
     'myApp.viewTemplate',
-    'myApp.tripScheduler'
+    'myApp.tripScheduler',
+    'myApp.tripDestinationLodgingAddEdit',
+    'myApp.tripDestinationSchedule',
+    'myApp.tripDestinationEvents',
+    'myApp.tripsList',
+    'myApp.tripAddEdit',
+    'myApp.tripDetails'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/tripsList'});
 }]);

@@ -36,12 +36,6 @@ public class Lodging implements Serializable {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "DATE_FROM")
-    private Date date_from;
-
-    @Column(name = "DATE_TO")
-    private Date date_to;
-
     @Column(name = "PRICE")
     private Double price;
 

@@ -19,18 +19,23 @@ public class TripController {
         return tripService.getTrip(id);
     }
 
+    @RequestMapping(value = "/getUserTrips/{user_id}", method = RequestMethod.GET)
+    public List<TripDto> getUserTrips(@PathVariable("user_id") Long user_id) {
+        return tripService.getUserTrips(user_id);
+    }
+
     @RequestMapping(value = "/getTrips", method = RequestMethod.GET)
     public List<TripDto> getTrips() {
         return tripService.getTrips();
     }
 
-    @RequestMapping(value = "/addTrips", method = RequestMethod.POST)
-    public void addTrips(@RequestBody List<TripDto> tripDtoList) {
-        tripService.addTrips(tripDtoList);
+    @RequestMapping(value = "/addUpdateTrip", method = RequestMethod.POST)
+    public void updateTrip(@RequestBody TripDto tripDto) {
+        tripService.addUpdateTrip(tripDto);
     }
 
-    @RequestMapping(value = "/updateTrip", method = RequestMethod.POST)
-    public void updateTrip(@RequestBody TripDto tripDto) {
-        tripService.updateTrip(tripDto);
+    @RequestMapping(value = "/deleteTrip/{trip_id}", method = RequestMethod.GET)
+    public void deleteTrip(@PathVariable("trip_id") Long tripId) {
+        tripService.deleteTrip(tripId);
     }
 }

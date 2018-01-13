@@ -1,25 +1,40 @@
 <form>
     <div class="form-group">
         <div class="row">
-            <div class="col-sm-6">
-                <label>Name of destination:</label>
-                {{destination.name}}
-                <div layout-gt-xs="row">
-                    <div flex-gt-xs>
-                        <label>Date from:</label>
-                        <md-datepicker ng-model="dateFrom" name="dateFrom"
-                                       disabled=""></md-datepicker>
-                    </div>
-                    <div flex-gt-xs>
-                        <label>Date to :</label>
-                        <md-datepicker ng-model="dateTo" name="dateTo" md-placeholder="Enter date"
-                                       disabled=""></md-datepicker>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <div id="tripDestinationDetails">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Destination: {{destination.name}}</div>
+                        <div class="panel-body">
+
+                            <div layout-gt-xs="row">
+                                <label>Start Date: </label>
+                                {{dateFrom| date:'yyyy-MM-dd'}}
+                            </div>
+                            <div layout-gt-xs="row">
+                                <label>End Date: </label>
+                                {{dateTo| date:'yyyy-MM-dd'}}
+                            </div>
+                            <div layout-gt-xs="row">     <label>     </label>
+                            </div><div layout-gt-xs="row">     <label>     </label>
+                            </div>
+                            <div class="row">
+                                <a href="" class="btn btn-info" data-toggle="modal"
+                                   data-target="#addEditDestinationModal"
+                                   ng-click="editDestination()">Edit destination</a>
+                                <a href="" class="btn btn-info" ng-click="deleteDestination()">Delete destination</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
+            <div class="col-sm-1"></div>
             <div class="col-sm-6">
                 <ng-map center="{{destination.name}}"></ng-map>
             </div>
         </div>
+    </div>
 </form>
-<a href="" data-toggle="modal" data-target="#largeModal" ng-click="editDestination()">Edit destination</a>
+

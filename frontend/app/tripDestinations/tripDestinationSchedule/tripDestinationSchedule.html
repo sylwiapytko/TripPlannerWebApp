@@ -1,0 +1,9 @@
+<button class="btn btn-info" ng-click="changeCalendar()" ng-hide="monthConfigVisible">Show Month</button>
+<button class="btn btn-info" ng-click="changeCalendar()" ng-show="monthConfigVisible">Show Week</button>
+<button class="btn btn-info" ng-click="moveCalendar(-7)" ng-hide="monthConfigVisible">Previous Week</button>
+<button class="btn btn-info" ng-click="moveCalendar(7)" ng-hide="monthConfigVisible">Next Week</button>
+<button class="btn btn-info" ng-click="moveCalendar(-30)" ng-show="monthConfigVisible">Previous Month</button>
+<button class="btn btn-info" ng-click="moveCalendar(30)" ng-show="monthConfigVisible">Next Month</button>
+<daypilot-month id="month" daypilot-config="monthConfig" daypilot-events="events" ng-show="monthConfigVisible" ></daypilot-month>
+<daypilot-calendar id="week" daypilot-config="weekConfig" daypilot-events="events" ng-hide="monthConfigVisible"></daypilot-calendar>
+

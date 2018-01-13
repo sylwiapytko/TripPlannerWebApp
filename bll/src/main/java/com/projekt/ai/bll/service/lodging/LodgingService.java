@@ -30,9 +30,9 @@ public class LodgingService {
         return lodgingAssembler.toDtoList(all);
     }
 
-    public List<LodgingDto> getDestinationLodgings(Long destination_id){
-        List<Lodging> all = lodgingRepository.findByDestination_id(destination_id);
-        return lodgingAssembler.toDtoList(all);
+    public LodgingDto getDestinationLodging(Long destination_id){
+        Lodging byId = lodgingRepository.findByDestination_id(destination_id);
+        return lodgingAssembler.toDto(byId);
     }
 
     public LodgingDto getLodging(Long id){
@@ -40,20 +40,13 @@ public class LodgingService {
         return lodgingAssembler.toDto(byId);
     }
 
-    public void addLodgings(List<LodgingDto> lodgingDtoList) {
+    public void addupdateLodging(LodgingDto lodgingDto) {
 
-        for (LodgingDto lodgingDto : lodgingDtoList) {
             Destination destination = destinationRepository.findById(lodgingDto.getDestination_id());
             Lodging lodging = lodgingAssembler.fromDto(lodgingDto);
             lodging.setDestination(destination);
             Lodging savedLodging = lodgingRepository.save(lodging);
 
-        }
     }
-    public void updateLodging(LodgingDto lodgingDto) {
-        Destination destination = destinationRepository.findById(lodgingDto.getDestination_id());
-        Lodging lodging = lodgingAssembler.updateDto(lodgingDto, lodgingDto.getId());
-        lodging.setDestination(destination);
-        Lodging savedLodging = lodgingRepository.save(lodging);
-    }
+
 }

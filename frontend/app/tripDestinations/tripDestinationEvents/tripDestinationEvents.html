@@ -1,0 +1,87 @@
+<div class="row" ng-show="eventShow">
+<div ng-repeat="event in events">
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">{{event.text}}</div>
+            <div class="panel-body">
+                <div layout-gt-xs="row">
+                    <div flex-gt-xs>
+                        <label>Start Date:</label> {{event.start}}
+                    </div>
+                    <div flex-gt-xs>
+                        <label>End Date:</label> {{event.end}}
+                    </div>
+                </div>
+                <div layout-gt-xs="row">
+                    <div flex-gt-xs>
+                        <label>Price:</label> {{event.price}}
+                    </div>
+                    <div flex-gt-xs>
+                        <label>Notes:</label> {{event.notes}}
+                    </div>
+                </div>
+            </div>
+            <a href="" class="btn btn-info" ng-click="editEvent(event)">Edit event</a>
+                <a href="" class="btn btn-info" ng-click="deleteEvent(event.id)">Delete event</a></button>
+        </div>
+    </div>
+</div>
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="addEvent()">Add Event</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div ng-hide="eventShow">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Edit event {{eventEdit.text}}</div>
+        <div class="panel-body">
+            <form>
+                <div layout-gt-xs="row">
+                    <label>Name:</label>
+                    <input type="text" ng-model="eventEdit.text">
+                </div>
+                <div layout-gt-xs="row">
+                    <div class="dropdown form-group dropdown-start-parent">
+                        <label>Start Date</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" data-ng-model="eventEdit.start">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                        <datetimepicker data-ng-model="eventEdit.start"
+                                        data-datetimepicker-config="{ dropdownSelector: '#dropdownStart', renderOn: 'end-date-changed' }"
+                                        data-on-set-time="startDateOnSetTime()"
+                                        data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                    </div>
+                    <div class="dropdown form-group dropdown-end-parent">
+                        <label>End Date</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" data-ng-model="eventEdit.end">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                        <datetimepicker data-ng-model="eventEdit.end"
+                                        data-datetimepicker-config="{ dropdownSelector: '#dropdownEnd', renderOn: 'start-date-changed' }"
+                                        data-on-set-time="endDateOnSetTime()"
+                                        data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label>Price:</label>
+                        <input type="number" ng-model="eventEdit.price">
+                    </div>
+                    <div >
+                        <label>Notes:</label>
+                        <textarea ng-model="eventEdit.notes"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer"><a href="" class="btn btn-info" ng-click="saveEditedEvent()">Save event</a>
+            <button type="button" class="btn btn-info" ng-click="cancelEditedEvent()">Close</button>
+    </div>
+</div>
+</div>
+</div>
+<trip-destination-event-add-edit></trip-destination-event-add-edit>

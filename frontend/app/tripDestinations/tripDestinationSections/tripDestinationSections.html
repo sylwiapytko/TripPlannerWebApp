@@ -2,37 +2,31 @@
     <div class="panel-group" >
             <div id="tripDestinationDetails">
                 <div class="panel-primary">
-                <div class="panel-heading">Destination details</div>
+                    <div class="panel-heading"><h3>Destination details</h3></div>
                 <div class="panel-body"><trip-destination-details></trip-destination-details></div>
-                <div class="panel-footer"><a href="" data-toggle="modal" data-target="#largeModal" ng-click="editDestination()">Edit destination</a></div>
                 </div>
             </div>
-            <div id="tripDestinationLodging">
-                <h1>Lodging</h1>
-                <trip-destination-lodging></trip-destination-lodging>
-            </div>
-            <div id="section3">
-                <h1>Section 3</h1>
-                <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-            </div>
-            <div id="section41">
-                <h1>Section 4-1</h1>
-                <p>Try to scroll  this section and look at the navigation list while scrolling!</p>
-                <p>Try to scroll  this section and look at the navigation list while scrolling!</p>
-            </div>
 
-    </div>
-</div>
-
-
-<div class="container main-center">
-    <div class="panel-group" >
-        <div ng-repeat="book in books | filter:search" class="panel panel-primary" >
-                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div id="tripDestinationEvents">
+            <div class="panel-primary">
+                <div class="panel-heading"><h3>Events</h3></div>
+                <div class="panel-body"><trip-destination-events></trip-destination-events></div>
             </div>
-
+        </div>
+        <div id="tripDestinationSchedule">
+                <div class="panel-primary">
+                    <div class="panel-heading"><h3>Schedule</h3></div>
+                    <div class="panel-body"><trip-destination-schedule></trip-destination-schedule></div>
+                </div>
+            </div>
+        <div id="tripDestinationLodging">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h3>Lodging</h3></div>
+                <div class="panel-body">
+                    <trip-destination-lodging></trip-destination-lodging>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+

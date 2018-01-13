@@ -20,6 +20,7 @@ public class TripAssembler extends MainAssembler<Trip, TripDto> {
                 .destination(trip.getDestination())
                 .date_from(trip.getDate_from())
                 .date_to(trip.getDate_to())
+                .user_id(trip.getUser().getId())
                 .build();
     }
 

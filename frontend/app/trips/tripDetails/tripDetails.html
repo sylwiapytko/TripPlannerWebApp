@@ -1,0 +1,45 @@
+<div class="container main-center">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">
+            <div id="tripDestinationDetails">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Destination: {{trip.name}}</div>
+                    <div class="panel-body">
+                        <div layout-gt-xs="row">
+                            <label>Trip main destination: </label>
+                            {{trip.destination}}
+                        </div>
+                        <div layout-gt-xs="row">
+                            <label>Start Date: </label>
+                            {{dateFrom| date:'yyyy-MM-dd'}}
+                        </div>
+                        <div layout-gt-xs="row">
+                            <label>End Date: </label>
+                            {{dateTo| date:'yyyy-MM-dd'}}
+                        </div>
+                        <div layout-gt-xs="row"><label> </label>
+                        </div>
+                        <div layout-gt-xs="row"><label> </label>
+                        </div>
+                        <div class="row">
+                            <a href="" class="btn btn-info" data-toggle="modal"
+                               data-target="#addEditTrip"
+                               ng-click="editTrip()">Edit trip</a>
+                            <a href="" class="btn btn-info" ng-click="deleteTrip()">Delete trip</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-6">
+            <ng-map center="{{trip.destination}}"></ng-map>
+        </div>
+    </div>
+</div>
+<trip-add-edit></trip-add-edit>
+
+    
+

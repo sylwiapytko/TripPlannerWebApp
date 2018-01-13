@@ -17,8 +17,6 @@ public class LodgingAssembler extends MainAssembler<Lodging, LodgingDto> {
         return LodgingDto.builder()
                 .id(lodging.getId())
                 .name(lodging.getName())
-                .date_from(lodging.getDate_from())
-                .date_to(lodging.getDate_to())
                 .price(lodging.getPrice())
                 .notes(lodging.getNotes())
                 .destination_id(lodging.getDestination().getId())
@@ -31,25 +29,10 @@ public class LodgingAssembler extends MainAssembler<Lodging, LodgingDto> {
         return Lodging.builder()
                 .id(input.getId())
                 .name(input.getName())
-                .date_from(input.getDate_from())
-                .date_to(input.getDate_to())
                 .price(input.getPrice())
                 .notes(input.getNotes())
                 .destination(null)
                 .build();
     }
 
-    @Override
-    public Lodging updateDto(LodgingDto input, Long id) {
-
-        return Lodging.builder()
-                .id(id)
-                .name(input.getName())
-                .date_from(input.getDate_from())
-                .date_to(input.getDate_to())
-                .price(input.getPrice())
-                .notes(input.getNotes())
-                .destination(null)
-                .build();
-    }
 }

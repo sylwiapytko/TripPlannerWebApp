@@ -1,8 +1,11 @@
 package com.projekt.ai.bll.service.trip;
 
 import com.projekt.ai.bll.model.trip.TripDto;
+import com.projekt.ai.dal.domain.lodging.Lodging;
 import com.projekt.ai.dal.domain.trip.Trip;
 import com.projekt.ai.dal.domain.trip.TripRepository;
+import com.projekt.ai.dal.domain.user.User;
+import com.projekt.ai.dal.domain.user.UserRepository;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +25,17 @@ public class TripService {
     @Autowired
     private TripAssembler tripAssembler;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     public List<TripDto> getTrips(){
         List<Trip> all = tripRepository.findAll();
+        return tripAssembler.toDtoList(all);
+    }
+
+    public List<TripDto> getUserTrips(Long user_id) {
+        List<Trip> all  = tripRepository.findByUser_id(user_id);
         return tripAssembler.toDtoList(all);
     }
 
@@ -33,16 +44,16 @@ public class TripService {
         return tripAssembler.toDto(byId);
     }
 
-    public void addTrips(List<TripDto> tripDtoList) {
+    public void addUpdateTrip(TripDto tripDto) {
 
-        for (TripDto tripDto : tripDtoList) {
-            Trip trip = tripAssembler.fromDto(tripDto);
-            Trip savedTrip = tripRepository.save(trip);
+        User user = userRepository.findById(tripDto.getUser_id());
+        Trip trip = tripAssembler.fromDto(tripDto);
+        trip.setUser(user);
+        Trip savedTrip = tripRepository.save(trip);
+    }
 
-        }
+    public void deleteTrip(Long tripId) {
+        tripRepository.delete(tripId);
     }
-    public void updateTrip(TripDto tripDto) {
-            Trip trip = tripAssembler.updateDto(tripDto, tripDto.getId());
-            Trip savedTrip = tripRepository.save(trip);
-    }
+
 }

@@ -19,8 +19,6 @@ import java.sql.Date;
 public class LodgingDto {
     private Long id;
     private String name;
-    private Date date_from;
-    private Date date_to;
     private Double price;
     private String notes;
     private Long destination_id;
