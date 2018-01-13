@@ -32,7 +32,7 @@ angular.module('myApp.tripDestinationAddEdit', ['ngRoute'])
                 "name": "",
                 "date_from": "",
                 "date_to": "",
-                "trip_id": 1
+                "trip_id": + $cookies.get("tripId")
             }
         });
 

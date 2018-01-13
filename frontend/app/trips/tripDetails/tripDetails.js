@@ -9,7 +9,7 @@ angular.module('myApp.tripDetails', ['ngRoute'])
         });
     }])
 
-    .controller('tripDetailsCtrl', function($scope, $http, $rootScope, $routeParams, $cookies) {
+    .controller('tripDetailsCtrl', function($scope, $http, $rootScope, $routeParams, $cookies, $mdDialog) {
 
 
 
@@ -36,50 +36,25 @@ angular.module('myApp.tripDetails', ['ngRoute'])
         getTrips();
         getDestinations();
 
-        var configStartDate = function (startDate) {
-            $scope.dateConfigstart= startDate.format("yyyy-mm-dd");
-            $scope.monthConfig = {startDate: $scope.dateConfigstart}
-        };
-
-        $scope.monthConfig = {
-            startDate: new DayPilot.Date(),
-
-            onEventMove: function(args) {
-                onEventMove(args)
-            }
-        };
-        var onEventMove = function (args) {
-            var eventId= args.e.id();
-            var updatedEvent = $scope.events.filter(function(item) { return item.id === eventId; });
-            updatedEvent=updatedEvent[0];
-            updatedEvent.start=args.newStart.toString();
-            updatedEvent.end=args.newEnd.toString();
-
-            saveSchedule(updatedEvent)
+        $scope.editTrip = function(){
+            $rootScope.$broadcast('editTrip');
         }
 
-        var saveSchedule = function(updatedEvent) {
-            var req = {
-                method: 'POST',
-                url: "http://localhost:8080/api/trip/addUpdateEvent",
-                // headers: {"access_token": $cookies.get("access_token")},
-                data: updatedEvent
-            };
-            $http(req).then(function(data){
-                $rootScope.$broadcast('eventUpdated');
+        $scope.deleteTrip = function () {
+            var confirm = $mdDialog.confirm()
+                .title('Delete trip')
+                .textContent('Do you want to delete trip '+ $scope.trip.name+' ?')
+                .ok('Delete')
+                .cancel('Cancel');
+
+            $mdDialog.show(confirm).then(function() {
+                var url = "http://localhost:8080/api/trip/deleteTrip/" + $routeParams.id;
+                $http.get(url).then(function(response) {
+                    window.location.href = "#!/tripList";
+                });
+            }, function() {
             });
-        }
 
-        $rootScope.$on('eventUpdated', function () {
-            getDestinations();
-        });
-
-        $scope.moveCalendar = function (days) {
-            var newstartDate = new Date($scope.weekConfig.startDate);
-            newstartDate=new Date(newstartDate.setDate(newstartDate.getDate() + days));
-            configStartDate(newstartDate);
         };
-
-        getDestinations();
 
     });

@@ -24,7 +24,9 @@ angular.module('myApp.tripsList', ['ngRoute'])
                 $scope.trips = response.data;
             });
         };
-
+        $scope.addDestination = function () {
+            $rootScope.$broadcast('addTrip');
+        }
         $scope.openTrip= function(trip_id){
             $cookies.put("tripId", trip_id);
             $rootScope.$broadcast('tripOpened');

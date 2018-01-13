@@ -10,7 +10,16 @@
             <label><h3>Your Trips:</h3></label>
             <div ng-repeat="trip in trips">
                 <div class="list-group">
-                    <a href="" class="list-group-item" ng-click="openTrip(trip.id)">{{trip.name}} {{trip.date_from}}-{{trip.date_to}}</a>
+                    <a href="" class="list-group-item" ng-click="openTrip(trip.id)">
+                        <div layout-gt-xs="row">
+                            <div flex-gt-xs>
+                                {{trip.name}}
+                            </div>
+                            <div flex-gt-xs>
+                                {{trip.date_from}} {{trip.date_to}}
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             </div>

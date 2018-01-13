@@ -36,7 +36,7 @@ angular.module('myApp.tripDestinationDetails', ['ngRoute'])
                 var url = "http://localhost:8080/api/trip/deleteDestination/" + $routeParams.id;
                 $http.get(url).then(function(response) {
                     $rootScope.$broadcast('destinationDeleted');
-                    window.location.href = "#!/view1";
+                    window.location.href = "#!/tripDetails/"+ $cookies.get("tripId");
                 });
             }, function() {
                 console.log("canceled deletina")

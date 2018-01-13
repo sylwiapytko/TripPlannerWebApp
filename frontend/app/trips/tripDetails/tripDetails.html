@@ -7,6 +7,10 @@
                     <div class="panel-heading">Destination: {{trip.name}}</div>
                     <div class="panel-body">
                         <div layout-gt-xs="row">
+                            <label>Trip main destination: </label>
+                            {{trip.destination}}
+                        </div>
+                        <div layout-gt-xs="row">
                             <label>Start Date: </label>
                             {{dateFrom| date:'yyyy-MM-dd'}}
                         </div>
@@ -20,9 +24,9 @@
                         </div>
                         <div class="row">
                             <a href="" class="btn btn-info" data-toggle="modal"
-                               data-target="#addEditDestinationModal"
-                               ng-click="editDestination()">Edit trip</a>
-                            <a href="" class="btn btn-info" ng-click="deleteDestination()">Delete trip</a>
+                               data-target="#addEditTrip"
+                               ng-click="editTrip()">Edit trip</a>
+                            <a href="" class="btn btn-info" ng-click="deleteTrip()">Delete trip</a>
                         </div>
                     </div>
                 </div>
@@ -31,12 +35,11 @@
         </div>
         <div class="col-sm-1"></div>
         <div class="col-sm-6">
-            <button class="btn btn-info" ng-click="moveCalendar(-30)" ng-show="monthConfigVisible">Previous Month</button>
-            <button class="btn btn-info" ng-click="moveCalendar(30)" ng-show="monthConfigVisible">Next Month</button>
-            <daypilot-month id="month" daypilot-config="monthConfig" daypilot-events="events" ng-show="monthConfigVisible" ></daypilot-month>
+            <ng-map center="{{trip.destination}}"></ng-map>
         </div>
     </div>
 </div>
+<trip-add-edit></trip-add-edit>
 
     
 
