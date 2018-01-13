@@ -41,8 +41,6 @@ public class UserService {
         User user = new User();
         user.setUsername(userRegisterIn.getUsername());
         user.setPassword(userRegisterIn.getPassword());
-        user.setFirstname(userRegisterIn.getFirstname());
-        user.setLastname(userRegisterIn.getLastname());
         user.setEmail(userRegisterIn.getEmail());
 
         User savedUser = userRepository.save(user);
@@ -58,7 +56,7 @@ public class UserService {
         UserLoginOut userLoginOut = new UserLoginOut();
         userLoginOut.setToken(generateToken(user));
         userLoginOut.setUserId(user.getId());
-        userLoginOut.setFirstname(user.getFirstname());
+        userLoginOut.setUsername(user.getUsername());
 
         return userLoginOut;
     }

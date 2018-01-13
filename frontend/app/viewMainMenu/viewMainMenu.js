@@ -19,14 +19,14 @@ angular.module('myApp.viewMainMenu', ['ngCookies'])
 	function($scope, $http, $cookies, $rootScope) {
         if ($cookies.get("access_token")) {
 
-            $scope.userName = $cookies.get("firstName");
+            $scope.userName = $cookies.get("userName");
             $scope.userLoggedIn = true;
         }
         else {
             $scope.userName = "User";
         }
         $rootScope.$on('userLoggedIn', function () {
-            $scope.userName = $cookies.get("firstName");
+            $scope.userName = $cookies.get("userName");
             $scope.userLoggedIn = true;
         });
 

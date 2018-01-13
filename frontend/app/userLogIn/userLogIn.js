@@ -33,12 +33,16 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
         $http(req).then(function(data){
              $cookies.put("access_token", data.data.token);
              $cookies.put("userId", data.data.userId);
-             $cookies.put("firstName", data.data.firstname);
+             $cookies.put("userName", data.data.username);
              $scope.mycookie=$cookies.get("access_token");
              $rootScope.$broadcast('userLoggedIn');
              window.location.href = "#!/tripsList";
 
         }).catch(function(response) {
+            $scope.data = {
+                username: "",
+                password: ""
+            };
             $mdDialog.show(
                 $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))

@@ -37,12 +37,6 @@ public class RegistrationValidatorService {
         if(!check(userRegisterIn.getPassword(), RegexPattern.PASSWORD))
             return false;
 
-        if(!check(userRegisterIn.getFirstname(), RegexPattern.FIRSTNAME))
-            return false;
-
-        if(!check(userRegisterIn.getLastname(), RegexPattern.LASTNAME))
-            return false;
-
         if(!check(userRegisterIn.getEmail(), RegexPattern.EMAIL))
             return false;
 
