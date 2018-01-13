@@ -8,9 +8,13 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
     templateUrl: 'userLogIn/userLogIn.html',
     controller: 'UserLogInCtrl'
   });
-  // $httpProvider.defaults.useXDomain = true;
- // $httpProvider.defaults.withCredentials = true;
 }])
+    .directive('userLogIn', function() {
+        return {
+            templateUrl: 'userLogIn/userLogIn.html',
+            controller: 'UserLogInCtrl'
+        };
+    })
 
 .controller('UserLogInCtrl', function($scope, $http, $httpParamSerializer, $resource, $cookies, $rootScope, $mdDialog) {
   	

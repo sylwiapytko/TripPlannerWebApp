@@ -31,5 +31,12 @@ angular.module('myApp.tripsList', ['ngRoute'])
             window.location.href = "#!/tripDetails/"+ trip_id;
         };
 
+        if ($cookies.get("access_token")) {
+            $scope.userLoggedIn = true;
+        }
+        else {
+            $scope.userLoggedIn = false;
+        };
+
         getTrips();
     });
