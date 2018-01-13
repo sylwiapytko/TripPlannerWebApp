@@ -33,10 +33,7 @@ $scope.comparePass = function(){
         email: "anna22@o2.pl",
         firstname: "Anna",
         lastname: "Sowa",
-        city: "Olsztn",
-        street: "Mila",
-        houseNumber: "22/34",
-        postNumber: "22-111"
+
     };
     $scope.userReg.passwordRepeat="Anna22";
 
@@ -46,10 +43,6 @@ $scope.comparePass = function(){
     //     email: "",
     //     firstname: "",
     //     lastname: "",
-    //     city: "",
-    //     street: "",
-    //     houseNumber: "",
-    //     postNumber: ""
     // };
     // $scope.userReg.passwordRepeat="";
 

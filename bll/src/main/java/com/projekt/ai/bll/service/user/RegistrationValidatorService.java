@@ -46,18 +46,6 @@ public class RegistrationValidatorService {
         if(!check(userRegisterIn.getEmail(), RegexPattern.EMAIL))
             return false;
 
-        if(!check(userRegisterIn.getCity(), RegexPattern.CITY))
-            return false;
-
-        if(!check(userRegisterIn.getStreet(), RegexPattern.STREET))
-            return false;
-
-        if(!check(userRegisterIn.getHouseNumber(), RegexPattern.HOUSE_NUMBER))
-            return false;
-
-        if(!check(userRegisterIn.getPostNumber(), RegexPattern.POST_NUMBER))
-            return false;
-
         return true;
     }
 

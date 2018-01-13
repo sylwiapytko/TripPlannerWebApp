@@ -7,9 +7,6 @@ import com.projekt.ai.bll.model.user.UserRegisterIn;
 import com.projekt.ai.common.app.AppData;
 import com.projekt.ai.common.app.BookstoreAppException;
 import com.projekt.ai.common.app.Dictionary;
-import com.projekt.ai.dal.domain.enums.Role;
-import com.projekt.ai.dal.domain.user.Address;
-import com.projekt.ai.dal.domain.user.AddressRepository;
 import com.projekt.ai.dal.domain.user.User;
 import com.projekt.ai.dal.domain.user.UserRepository;
 import io.jsonwebtoken.JwtBuilder;
@@ -36,9 +33,6 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private AddressRepository addressRepository;
-
-    @Autowired
     private RegistrationValidatorService registrationValidatorService;
 
     public void register(UserRegisterIn userRegisterIn) {
@@ -53,14 +47,6 @@ public class UserService {
 
         User savedUser = userRepository.save(user);
 
-        Address address = new Address();
-        address.setId(savedUser.getId());
-        address.setCity(userRegisterIn.getCity());
-        address.setStreet(userRegisterIn.getStreet());
-        address.setHouseNumber(userRegisterIn.getHouseNumber());
-        address.setPostNumber(userRegisterIn.getPostNumber());
-
-        addressRepository.save(address);
     }
 
     public UserLoginOut login(UserLoginIn userLoginIn) {

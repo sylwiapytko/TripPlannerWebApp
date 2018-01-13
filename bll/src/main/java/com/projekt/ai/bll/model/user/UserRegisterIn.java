@@ -13,8 +13,5 @@ public class UserRegisterIn {
     private String firstname;
     private String lastname;
     private String email;
-    private String city;
-    private String street;
-    private String houseNumber;
-    private String postNumber;
+    
 }
