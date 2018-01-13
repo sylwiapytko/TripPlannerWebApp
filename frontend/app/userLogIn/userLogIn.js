@@ -24,6 +24,7 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
     };
 
    $scope.login = function() {
+       $scope.data.password = btoa($scope.data.password);
         var req = {
             method: 'POST',
             url: "http://localhost:8080/login",
@@ -35,7 +36,7 @@ angular.module('myApp.userLogIn', ['ngRoute', 'ngResource','ngCookies'
              $cookies.put("firstName", data.data.firstname);
              $scope.mycookie=$cookies.get("access_token");
              $rootScope.$broadcast('userLoggedIn');
-             window.location.href = "#!/bookList";
+             window.location.href = "#!/tripsList";
 
         }).catch(function(response) {
             $mdDialog.show(

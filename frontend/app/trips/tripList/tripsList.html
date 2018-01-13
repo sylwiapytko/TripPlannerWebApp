@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-sm-6">
             <h1>Welcome to TripPlaner!</h1>
+            <h3>Start your jurney today by planning your next trip!</h3>
             <div ng-show="userLoggedIn">
                 </br></br></br>
                 <a href="" class="btn btn-primary" data-toggle="modal" data-target="#addEditTrip" ng-click="addDestination()">Start planning a new trip</a>
@@ -25,7 +26,6 @@
             </div>
         </div>
             <div ng-hide="userLoggedIn">
-                <h3>Start your jurney today by planning your next trip!</h3>
                 </br></br>
                 <a href="#!/userLogIn" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-log-in"></span> Log in</a>
                 <a href="#!/userRegistration" class="btn btn-primary btn-lg"></span> Sign In</a>

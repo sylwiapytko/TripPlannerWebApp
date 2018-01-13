@@ -47,6 +47,7 @@ $scope.comparePass = function(){
     // $scope.userReg.passwordRepeat="";
 
   var register = function () {
+      $scope.userReg.password = btoa($scope.userReg.password);
       var req = {
           method: 'POST',
           url: "http://localhost:8080/register",
@@ -54,7 +55,7 @@ $scope.comparePass = function(){
 
       };
       $http(req).then(function (data) {
-          window.location.href = "#!/login";
+          window.location.href = "#!/userLogIn";
       });
   };
 
