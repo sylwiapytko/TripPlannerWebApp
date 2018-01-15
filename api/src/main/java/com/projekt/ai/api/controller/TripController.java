@@ -24,11 +24,6 @@ public class TripController {
         return tripService.getUserTrips(user_id);
     }
 
-    @RequestMapping(value = "/getTrips", method = RequestMethod.GET)
-    public List<TripDto> getTrips() {
-        return tripService.getTrips();
-    }
-
     @RequestMapping(value = "/addUpdateTrip", method = RequestMethod.POST)
     public void updateTrip(@RequestBody TripDto tripDto) {
         tripService.addUpdateTrip(tripDto);

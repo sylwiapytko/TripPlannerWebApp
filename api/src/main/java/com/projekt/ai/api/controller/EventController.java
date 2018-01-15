@@ -24,12 +24,6 @@ public class EventController {
         return activityService.getDestinationEvent(desination_id);
     }
 
-    @RequestMapping(value = "/getEvents", method = RequestMethod.GET)
-    public List<EventDto> getEvents() {
-        return activityService.getEvents();
-    }
- 
-
     @RequestMapping(value = "/addUpdateEvent", method = RequestMethod.POST)
     public void addupdateEvent(@RequestBody EventDto activityDto) {
         activityService.addupdateEvent(activityDto);

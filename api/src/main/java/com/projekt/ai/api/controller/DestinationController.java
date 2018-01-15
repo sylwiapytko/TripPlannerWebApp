@@ -25,15 +25,11 @@ public class DestinationController {
         return destinationService.getTripDestinations(trip_id);
     }
 
-    @RequestMapping(value = "/getDestinations", method = RequestMethod.GET)
-    public List<DestinationDto> getDestinations() {
-        return destinationService.getDestinations();
-    }
-
     @PostMapping(value = "/addUpdateDestination", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addUpdateDestinations(@RequestBody DestinationDto destinationDto) {
         destinationService.addUpdateDestinations(destinationDto);
     }
+
     @RequestMapping(value = "/deleteDestination/{destination_id}", method = RequestMethod.GET)
     public void deleteDestination(@PathVariable("destination_id") Long destinationId) {
         destinationService.deleteDestination(destinationId);

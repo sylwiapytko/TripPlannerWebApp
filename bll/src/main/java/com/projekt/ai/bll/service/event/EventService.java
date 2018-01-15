@@ -25,11 +25,6 @@ public class EventService {
     private EventAssembler eventAssembler;
 
 
-    public List<EventDto> getEvents(){
-        List<Event> all = eventRepository.findAll();
-        return eventAssembler.toDtoList(all);
-    }
-
     public List<EventDto> getDestinationEvent(Long destination_id){
         List<Event> all = eventRepository.findByDestination_id(destination_id);
         return eventAssembler.toDtoList(all);
