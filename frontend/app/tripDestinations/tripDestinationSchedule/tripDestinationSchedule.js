@@ -33,9 +33,6 @@ angular.module('myApp.tripDestinationSchedule', ['ngRoute'])
         $scope.weekConfig = {
             viewType: "Week",
             startDate: new DayPilot.Date(),
-            businessBeginsHour: 0,
-            businessEndsHour: 24,
-            heightSpec: "Full",
 
             onEventMove: function(args) {
                 onEventMove(args);

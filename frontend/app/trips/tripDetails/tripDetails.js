@@ -22,6 +22,7 @@ angular.module('myApp.tripDetails', ['ngRoute'])
             $http.get(url).then(function (response) {
                 $scope.trip = response.data;
                 $scope.dateFrom =new Date($scope.trip.date_from);
+                $scope.dateTo =new Date($scope.trip.date_to);
                 configStartDate($scope.dateFrom);
             });
         };

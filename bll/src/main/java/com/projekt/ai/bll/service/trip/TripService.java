@@ -40,7 +40,6 @@ public class TripService {
     }
 
     public void addUpdateTrip(TripDto tripDto) {
-
         User user = userRepository.findById(tripDto.getUser_id());
         Trip trip = tripAssembler.fromDto(tripDto);
         trip.setUser(user);
