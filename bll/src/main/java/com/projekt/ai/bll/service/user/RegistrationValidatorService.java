@@ -1,7 +1,7 @@
 package com.projekt.ai.bll.service.user;
 
 import com.projekt.ai.bll.model.user.UserRegisterIn;
-import com.projekt.ai.common.app.BookstoreAppException;
+import com.projekt.ai.common.app.AppException;
 import com.projekt.ai.common.app.Dictionary;
 import com.projekt.ai.common.app.RegexPattern;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class RegistrationValidatorService {
 
     public void validateUser(UserRegisterIn userRegisterIn) {
         if(!validate(userRegisterIn))
-            throw new BookstoreAppException(Dictionary.INVALID_REGISTRATION_DATA_FORMAT);
+            throw new AppException(Dictionary.INVALID_REGISTRATION_DATA_FORMAT);
     }
 
     private boolean validate(UserRegisterIn userRegisterIn) {

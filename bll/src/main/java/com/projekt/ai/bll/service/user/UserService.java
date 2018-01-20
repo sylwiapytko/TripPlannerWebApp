@@ -5,7 +5,7 @@ import com.projekt.ai.bll.model.user.UserLoginIn;
 import com.projekt.ai.bll.model.user.UserLoginOut;
 import com.projekt.ai.bll.model.user.UserRegisterIn;
 import com.projekt.ai.common.app.AppData;
-import com.projekt.ai.common.app.BookstoreAppException;
+import com.projekt.ai.common.app.AppException;
 import com.projekt.ai.common.app.Dictionary;
 import com.projekt.ai.dal.domain.user.User;
 import com.projekt.ai.dal.domain.user.UserRepository;
@@ -51,7 +51,7 @@ public class UserService {
         User user = userRepository.getUserByUsernameAndPassword(userLoginIn.getUsername(), userLoginIn.getPassword());
 
         if(user == null)
-            throw new BookstoreAppException(Dictionary.INVALID_PASSES);
+            throw new AppException(Dictionary.INVALID_PASSES);
 
         UserLoginOut userLoginOut = new UserLoginOut();
         userLoginOut.setToken(generateToken(user));

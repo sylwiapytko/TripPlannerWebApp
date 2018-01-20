@@ -1,6 +1,5 @@
 package com.projekt.ai.bll.model.user;
 
-import com.projekt.ai.dal.domain.enums.Role;
 import lombok.Data;
 
 /**

@@ -1,6 +1,5 @@
 package com.projekt.ai.dal.domain.user;
 
-import com.projekt.ai.dal.domain.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;
