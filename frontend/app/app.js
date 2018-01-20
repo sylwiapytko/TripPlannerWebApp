@@ -3,9 +3,6 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute', 'ngMaterial', 'ngMap', 'ngMaterialDatePicker', 'daypilot',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.tripAdd',
     'myApp.viewMainMenu',
     'myApp.tripDestinationsSidebar',
     'myApp.tripDestinationSections',
@@ -13,10 +10,8 @@ angular.module('myApp', [
     'myApp.tripDestinationLodging',
     'myApp.tripDestinationAddEdit',
     'ui.bootstrap.datetimepicker',
-    'myApp.datetimePicker',
     'myApp.userLogIn',
     'myApp.userRegistration',
-    'myApp.mapApi',
     'myApp.viewTemplate',
     'myApp.tripScheduler',
     'myApp.tripDestinationLodgingAddEdit',
