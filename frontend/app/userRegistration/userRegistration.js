@@ -22,13 +22,13 @@ $scope.comparePass = function(){
 	else{ $scope.badPasswords=true; }
 }
 
-    $scope.userReg={
-        username: "Anna22",
-        password: "Anna22",
-        email: "anna22@o2.pl"
-
-    };
-    $scope.passwordRepeat="Anna22";
+    // $scope.userReg={
+    //     username: "Anna22",
+    //     password: "Anna22",
+    //     email: "anna22@o2.pl"
+    //
+    // };
+    // $scope.passwordRepeat="Anna22";
 
     // $scope.userReg={
     //     username: "",
